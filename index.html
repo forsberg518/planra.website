@@ -150,6 +150,29 @@
         box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
       }
 
+      @keyframes glow-pop-blue {
+        0%   { box-shadow: 0 0 0px rgba(59, 130, 246, 0); transform: scale(1); }
+        40%  { box-shadow: 0 0 40px 12px rgba(59, 130, 246, 0.7); transform: scale(1.08); }
+        70%  { box-shadow: 0 0 25px 6px rgba(59, 130, 246, 0.4); transform: scale(1.03); }
+        100% { box-shadow: 0 0 20px 4px rgba(59, 130, 246, 0.35); transform: scale(1); }
+      }
+      @keyframes glow-pop-purple {
+        0%   { box-shadow: 0 0 0px rgba(139, 92, 246, 0); transform: scale(1); }
+        40%  { box-shadow: 0 0 40px 12px rgba(139, 92, 246, 0.7); transform: scale(1.08); }
+        70%  { box-shadow: 0 0 25px 6px rgba(139, 92, 246, 0.4); transform: scale(1.03); }
+        100% { box-shadow: 0 0 20px 4px rgba(139, 92, 246, 0.35); transform: scale(1); }
+      }
+      @keyframes glow-pop-green {
+        0%   { box-shadow: 0 0 0px rgba(34, 197, 94, 0); transform: scale(1); }
+        40%  { box-shadow: 0 0 40px 12px rgba(34, 197, 94, 0.7); transform: scale(1.08); }
+        70%  { box-shadow: 0 0 25px 6px rgba(34, 197, 94, 0.4); transform: scale(1.03); }
+        100% { box-shadow: 0 0 20px 4px rgba(34, 197, 94, 0.35); transform: scale(1); }
+      }
+
+      .step-circle.glow-active[data-glow="blue"]   { animation: glow-pop-blue   0.7s ease forwards; }
+      .step-circle.glow-active[data-glow="purple"] { animation: glow-pop-purple 0.7s ease forwards; }
+      .step-circle.glow-active[data-glow="green"]  { animation: glow-pop-green  0.7s ease forwards; }
+
       .noise-bg::before {
         content: "";
         position: absolute;
@@ -970,7 +993,7 @@
 
           <!-- Step 1 -->
           <div class="flex flex-col items-center">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 glow-blue relative z-10">
+            <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 relative z-10" data-glow="blue">
               <span class="text-xl font-black">1</span>
             </div>
             <h3 class="font-bold text-lg mb-2">Last ned Planra</h3>
@@ -980,7 +1003,7 @@
           </div>
           <!-- Step 2 -->
           <div class="flex flex-col items-center">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-6 relative z-10">
+            <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-6 relative z-10" data-glow="purple">
               <span class="text-xl font-black">2</span>
             </div>
             <h3 class="font-bold text-lg mb-2">Koble til kunder</h3>
@@ -990,7 +1013,7 @@
           </div>
           <!-- Step 3 -->
           <div class="flex flex-col items-center">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 relative z-10">
+            <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 relative z-10" data-glow="green">
               <span class="text-xl font-black">3</span>
             </div>
             <h3 class="font-bold text-lg mb-2">Start bookingen</h3>
@@ -1253,6 +1276,21 @@
     </footer>
 
     <script>
+      // Step circle scroll glow (mobile)
+      const stepCircles = document.querySelectorAll('.step-circle');
+      const glowObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('glow-active');
+            // Force reflow to restart animation
+            void entry.target.offsetWidth;
+            entry.target.classList.add('glow-active');
+          }
+        });
+      }, { threshold: 0.7 });
+
+      stepCircles.forEach(circle => glowObserver.observe(circle));
+
       // Mobile menu toggle
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
