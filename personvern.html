@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personvernerklæring – Planra</title>
+    <meta name="description" content="Les om hvordan Planra behandler dine personopplysninger." />
+    <link rel="icon" href="favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      .glass {
+        background: rgba(30, 41, 59, 0.55);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #7ba4e0 0%, #9b8fc0 50%, #c8929e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .prose-section h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .prose-section h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #cbd5e1;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .prose-section p {
+        color: #94a3b8;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+      .prose-section ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+      .prose-section ul li {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        padding-left: 1.25rem;
+        position: relative;
+      }
+      .prose-section ul li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+        font-size: 0.8rem;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#0f172a] text-white font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center">
+          <img src="planra-logo.png" alt="Planra" class="h-8 w-auto" />
+        </a>
+        <a href="index.html" class="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Tilbake
+        </a>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="pt-32 pb-16 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10 blur-3xl" style="background: radial-gradient(circle, #3b82f6, transparent);"></div>
+      </div>
+      <div class="max-w-3xl mx-auto relative">
+        <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-medium mb-4">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          Legal
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-black mb-4">
+          <span class="gradient-text">Personvern</span>erklæring
+        </h1>
+        <p class="text-slate-400 text-lg">Sist oppdatert: 27. februar 2026</p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="pb-24 px-6">
+      <div class="max-w-3xl mx-auto prose-section">
+
+        <p>
+          Planra («vi», «oss», «vår») er forpliktet til å beskytte ditt personvern. Denne personvernerklæringen
+          forklarer hvilke opplysninger vi samler inn, hvordan vi bruker dem, og hvilke rettigheter du har
+          i henhold til personvernforordningen (GDPR).
+        </p>
+
+        <h2>1. Behandlingsansvarlig</h2>
+        <p>
+          Planra er behandlingsansvarlig for personopplysningene som behandles via appen og nettsiden.
+          For spørsmål om personvern, ta kontakt på:
+          <a href="mailto:personvern@planra.no" class="text-blue-400 hover:text-blue-300 transition-colors">personvern@planra.no</a>
+        </p>
+
+        <h2>2. Hvilke opplysninger vi samler inn</h2>
+
+        <h3>2.1 Konto og profil</h3>
+        <ul>
+          <li>Navn og e-postadresse (ved registrering)</li>
+          <li>Profilbilde (valgfritt, lastet opp av deg)</li>
+          <li>Rolle i appen (personlig trener eller kunde)</li>
+          <li>Kontaktinformasjon (telefonnummer, valgfritt)</li>
+        </ul>
+
+        <h3>2.2 Trenings- og aktivitetsdata</h3>
+        <ul>
+          <li>Bookede og gjennomførte treningsøkter (dato, tid, varighet, type)</li>
+          <li>Treningsmål og fremgang logget i appen</li>
+          <li>Timerequest og bekreftelsesstatus</li>
+          <li>Fakturerings- og betalingsstatus for timer (beløp, status)</li>
+        </ul>
+
+        <h3>2.3 Kommunikasjon</h3>
+        <ul>
+          <li>Chatmeldinger sendt mellom trener og kunde i appen</li>
+          <li>Tidspunkt for meldinger og lese-bekreftelser</li>
+        </ul>
+
+        <h3>2.4 Tekniske opplysninger</h3>
+        <ul>
+          <li>Enhets-token for push-varsler (Expo Notifications)</li>
+          <li>Innloggingsinformasjon og sesjonshåndtering</li>
+          <li>Grunnleggende feillogging ved tekniske problemer</li>
+        </ul>
+
+        <h2>3. Formål og rettslig grunnlag</h2>
+        <p>Vi behandler personopplysninger på følgende grunnlag (GDPR art. 6):</p>
+        <ul>
+          <li><strong class="text-slate-300">Avtaleoppfyllelse (art. 6 b):</strong> Levere tjenesten, håndtere bookinger, sende varsler og tilgjengeliggjøre chat.</li>
+          <li><strong class="text-slate-300">Berettiget interesse (art. 6 f):</strong> Forbedre appen, forebygge misbruk og sikre teknisk drift.</li>
+          <li><strong class="text-slate-300">Samtykke (art. 6 a):</strong> Sende push-varsler (kan trekkes tilbake i enhetsinnstillinger eller i appen).</li>
+        </ul>
+
+        <h2>4. Lagring og databehandlere</h2>
+        <p>
+          Planra bruker <strong class="text-slate-300">Convex</strong> (Convex, Inc., USA) som backend-plattform for
+          lagring og sanntidssynkronisering av data. Convex er underlagt standard kontraktsklausuler (SCCs)
+          i henhold til GDPR art. 46, og dataene er kryptert i overføring og i ro.
+        </p>
+        <p>
+          Push-varsler sendes via <strong class="text-slate-300">Expo Notifications</strong> (Expo, Inc., USA),
+          som videreformidler til Apples APNs og Googles FCM.
+        </p>
+        <p>
+          Vi selger ikke personopplysninger til tredjeparter, og deler ikke data utover det som er
+          nødvendig for å levere tjenesten.
+        </p>
+
+        <h2>5. Lagringstid</h2>
+        <ul>
+          <li>Kontoopplysninger lagres så lenge kontoen er aktiv</li>
+          <li>Treningsdata og chatmeldinger lagres aktivt i app-perioden</li>
+          <li>Ved sletting av konto slettes alle personopplysninger innen 30 dager</li>
+          <li>Anonymiserte aggregerte statistikker kan beholdes uten tidsbegrensning</li>
+        </ul>
+
+        <h2>6. Dine rettigheter</h2>
+        <p>Som registrert har du etter GDPR følgende rettigheter:</p>
+        <ul>
+          <li><strong class="text-slate-300">Innsyn (art. 15):</strong> Be om en kopi av alle opplysninger vi har om deg.</li>
+          <li><strong class="text-slate-300">Retting (art. 16):</strong> Få uriktige opplysninger korrigert.</li>
+          <li><strong class="text-slate-300">Sletting (art. 17):</strong> Be om at vi sletter dine opplysninger («retten til å bli glemt»).</li>
+          <li><strong class="text-slate-300">Begrensning (art. 18):</strong> Be om at behandlingen begrenses i visse situasjoner.</li>
+          <li><strong class="text-slate-300">Dataportabilitet (art. 20):</strong> Motta dine data i et strukturert, maskinlesbart format.</li>
+          <li><strong class="text-slate-300">Innsigelse (art. 21):</strong> Protestere mot behandling basert på berettiget interesse.</li>
+        </ul>
+        <p>
+          For å utøve dine rettigheter, send e-post til
+          <a href="mailto:personvern@planra.no" class="text-blue-400 hover:text-blue-300 transition-colors">personvern@planra.no</a>.
+          Du kan også klage til <strong class="text-slate-300">Datatilsynet</strong> (datatilsynet.no) dersom du
+          mener vi behandler personopplysninger i strid med GDPR.
+        </p>
+
+        <h2>7. Informasjonskapsler (cookies)</h2>
+        <p>
+          Planra-nettsiden bruker ingen sporings- eller markedsføringscookies. Vi benytter kun teknisk
+          nødvendige cookies for å sikre at nettsiden fungerer korrekt.
+        </p>
+
+        <h2>8. Sikkerhet</h2>
+        <p>
+          Vi iverksetter tekniske og organisatoriske tiltak for å beskytte dine opplysninger mot
+          uautorisert tilgang, tap eller endring. Dette inkluderer kryptert dataoverføring (HTTPS/TLS),
+          sikker autentisering og tilgangskontroll.
+        </p>
+
+        <h2>9. Endringer i erklæringen</h2>
+        <p>
+          Vi kan oppdatere denne erklæringen ved vesentlige endringer i tjenesten eller regelverket.
+          Du vil varsles via appen ved slike endringer. Fortsatt bruk etter varsel innebærer aksept
+          av den oppdaterte erklæringen.
+        </p>
+
+        <h2>10. Kontakt</h2>
+        <p>
+          Spørsmål om personvern kan rettes til:<br />
+          <a href="mailto:personvern@planra.no" class="text-blue-400 hover:text-blue-300 transition-colors">personvern@planra.no</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-12 px-6 bg-[#0c1524]">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div class="max-w-xs">
+            <img src="planra-logo.png" alt="Planra" class="h-8 w-auto mb-3" />
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Den komplette PT-appen for norske personlige trenere og kunder.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+            <div>
+              <div class="font-semibold text-white mb-3">Produkt</div>
+              <ul class="space-y-2 text-slate-400" style="list-style:none;padding:0;">
+                <li style="padding-left:0;"><li style="padding-left:0;"><a href="index.html#trenere" class="hover:text-white transition-colors">For trenere</a></li>
+                <li style="padding-left:0;"><a href="index.html#kunder" class="hover:text-white transition-colors">For kunder</a></li>
+                <li style="padding-left:0;"><a href="index.html#last-ned" class="hover:text-white transition-colors">Last ned</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-3">Last ned</div>
+              <ul class="space-y-2 text-slate-400" style="list-style:none;padding:0;">
+                <li style="padding-left:0;"><a href="index.html#last-ned" class="hover:text-white transition-colors">App Store</a></li>
+                <li style="padding-left:0;"><a href="index.html#last-ned" class="hover:text-white transition-colors">Google Play</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-3">Legal</div>
+              <ul class="space-y-2 text-slate-400" style="list-style:none;padding:0;">
+                <li style="padding-left:0;"><a href="personvern.html" class="text-white transition-colors">Personvern</a></li>
+                <li style="padding-left:0;"><a href="vilkar.html" class="hover:text-white transition-colors">Vilkår</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+          <div>© 2026 Planra. Alle rettigheter forbeholdt.</div>
+          <div>Laget med ❤️ i Norge</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

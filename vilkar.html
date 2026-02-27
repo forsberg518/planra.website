@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vilkår for bruk – Planra</title>
+    <meta name="description" content="Les vilkårene for bruk av Planra-appen og tjenesten." />
+    <link rel="icon" href="favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      .glass {
+        background: rgba(30, 41, 59, 0.55);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #7ba4e0 0%, #9b8fc0 50%, #c8929e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .prose-section h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .prose-section h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #cbd5e1;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .prose-section p {
+        color: #94a3b8;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+      .prose-section ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+      .prose-section ul li {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        padding-left: 1.25rem;
+        position: relative;
+      }
+      .prose-section ul li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+        font-size: 0.8rem;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#0f172a] text-white font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center">
+          <img src="planra-logo.png" alt="Planra" class="h-8 w-auto" />
+        </a>
+        <a href="index.html" class="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Tilbake
+        </a>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="pt-32 pb-16 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10 blur-3xl" style="background: radial-gradient(circle, #8b5cf6, transparent);"></div>
+      </div>
+      <div class="max-w-3xl mx-auto relative">
+        <div class="inline-flex items-center gap-2 text-purple-400 text-sm font-medium mb-4">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Legal
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-black mb-4">
+          <span class="gradient-text">Vilkår</span> for bruk
+        </h1>
+        <p class="text-slate-400 text-lg">Sist oppdatert: 27. februar 2026</p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="pb-24 px-6">
+      <div class="max-w-3xl mx-auto prose-section">
+
+        <p>
+          Disse vilkårene gjelder for bruk av Planra-appen og tilhørende tjenester («Tjenesten»).
+          Ved å opprette konto eller bruke Tjenesten, aksepterer du disse vilkårene i sin helhet.
+          Dersom du ikke aksepterer vilkårene, ber vi deg om å ikke bruke Tjenesten.
+        </p>
+
+        <h2>1. Om Tjenesten</h2>
+        <p>
+          Planra er en mobil- og webapplikasjon som gjør det mulig for personlige trenere å administrere
+          kunder, timeplan og fakturering, og for kunder å booke timer, følge opp mål og kommunisere
+          med sin trener. Tjenesten tilbys gratis å laste ned.
+        </p>
+
+        <h2>2. Hvem kan bruke Planra</h2>
+        <p>For å bruke Planra må du:</p>
+        <ul>
+          <li>Være minst 16 år gammel (under 18 år krever samtykke fra foresatt)</li>
+          <li>Oppgi korrekte og fullstendige opplysninger ved registrering</li>
+          <li>Ha tilgang til en kompatibel enhet (iOS eller Android)</li>
+          <li>Ha internettilgang</li>
+        </ul>
+
+        <h2>3. Brukertyper og roller</h2>
+        <h3>3.1 Personlig trener</h3>
+        <p>
+          Som trener er du ansvarlig for at all informasjon om kunder behandles i henhold til
+          gjeldende personvernlovgivning. Du er selv ansvarlig for prissetting, avtaler og fakturering
+          overfor dine kunder. Planra tilbyr verktøy for administrasjon, men er ikke part i avtalen
+          mellom deg og dine kunder.
+        </p>
+        <h3>3.2 Kunde</h3>
+        <p>
+          Som kunde bruker du Planra for å kommunisere med og booke timer hos din personlige trener.
+          Du er ansvarlig for å møte til bookede timer eller avlyse innen rimelig tid, i henhold til
+          avtale med din trener.
+        </p>
+
+        <h2>4. Kontoansvar</h2>
+        <ul>
+          <li>Du er ansvarlig for å holde innloggingsopplysningene dine hemmelige</li>
+          <li>Du er ansvarlig for all aktivitet som skjer via din konto</li>
+          <li>Kontoen er personlig og kan ikke overdras til andre</li>
+          <li>Mistenker du uautorisert bruk, skal du umiddelbart endre passord og varsle oss</li>
+        </ul>
+
+        <h2>5. Tillatt bruk</h2>
+        <p>Du forplikter deg til å bruke Tjenesten på en lovlig måte og ikke:</p>
+        <ul>
+          <li>Laste opp innhold som er ulovlig, støtende, diskriminerende eller i strid med andres rettigheter</li>
+          <li>Forsøke å omgå eller kompromittere sikkerhetsmekanismer i appen</li>
+          <li>Bruke Tjenesten til spam, phishing eller annen misbruksaktivitet</li>
+          <li>Reverse-engineere, kopiere eller distribuere kildekoden til Planra</li>
+          <li>Opprette falske kontoer eller utgi deg for å være en annen person</li>
+        </ul>
+
+        <h2>6. Innhold</h2>
+        <p>
+          Du beholder opphavsretten til innhold du laster opp (f.eks. profilbilder, meldinger).
+          Ved å laste opp innhold gir du Planra en begrenset, ikke-eksklusiv lisens til å lagre og
+          vise innholdet som nødvendig for å levere Tjenesten.
+        </p>
+        <p>
+          Vi forbeholder oss retten til å fjerne innhold som er i strid med disse vilkårene eller
+          gjeldende lovgivning, og å suspendere kontoer ved grove eller gjentatte brudd.
+        </p>
+
+        <h2>7. Tilgjengelighet og endringer</h2>
+        <p>
+          Vi tilstreber høy tilgjengelighet, men kan ikke garantere at Tjenesten alltid er feilfri
+          eller tilgjengelig. Vi forbeholder oss retten til å:
+        </p>
+        <ul>
+          <li>Gjennomføre planlagt og uplanlagt vedlikehold</li>
+          <li>Endre, begrense eller avvikle funksjoner med rimelig varsel</li>
+          <li>Oppdatere appen via App Store og Google Play</li>
+        </ul>
+
+        <h2>8. Ansvarsfraskrivelse</h2>
+        <p>
+          Tjenesten leveres «som den er» uten garantier av noe slag, verken uttrykkelige eller
+          underforståtte. Planra er ikke ansvarlig for:
+        </p>
+        <ul>
+          <li>Tap eller skade som følge av bruk eller manglende mulighet til å bruke Tjenesten</li>
+          <li>Feil, avbrudd eller tap av data</li>
+          <li>Innhold lastet opp av brukere</li>
+          <li>Avtaler inngått mellom trener og kunde via Tjenesten</li>
+        </ul>
+        <p>
+          Planras totale ansvar overfor deg er begrenset til det du eventuelt har betalt for Tjenesten
+          de siste 12 månedene.
+        </p>
+
+        <h2>9. Oppsigelse</h2>
+        <p>
+          Du kan når som helst slette kontoen din fra profilsiden i appen. Vi kan suspendere eller
+          avslutte din tilgang ved brudd på disse vilkårene, med eller uten forhåndsvarsel avhengig
+          av alvorlighetsgraden.
+        </p>
+
+        <h2>10. Endringer i vilkårene</h2>
+        <p>
+          Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil du varsles via
+          appen minst 14 dager før endringene trer i kraft. Fortsatt bruk av Tjenesten etter dette
+          anses som aksept av de oppdaterte vilkårene.
+        </p>
+
+        <h2>11. Gjeldende lov og verneting</h2>
+        <p>
+          Disse vilkårene er underlagt norsk rett. Eventuelle tvister søkes løst i minnelighet.
+          Dersom dette ikke lykkes, er Oslo tingrett verneting.
+        </p>
+
+        <h2>12. Kontakt</h2>
+        <p>
+          Spørsmål om vilkårene kan rettes til:<br />
+          <a href="mailto:hei@planra.no" class="text-blue-400 hover:text-blue-300 transition-colors">hei@planra.no</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-12 px-6 bg-[#0c1524]">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div class="max-w-xs">
+            <img src="planra-logo.png" alt="Planra" class="h-8 w-auto mb-3" />
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Den komplette PT-appen for norske personlige trenere og kunder.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+            <div>
+              <div class="font-semibold text-white mb-3">Produkt</div>
+              <ul class="space-y-2 text-slate-400" style="list-style:none;padding:0;">
+                <li style="padding-left:0;"><a href="index.html#trenere" class="hover:text-white transition-colors">For trenere</a></li>
+                <li style="padding-left:0;"><a href="index.html#kunder" class="hover:text-white transition-colors">For kunder</a></li>
+                <li style="padding-left:0;"><a href="index.html#last-ned" class="hover:text-white transition-colors">Last ned</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-3">Last ned</div>
+              <ul class="space-y-2 text-slate-400" style="list-style:none;padding:0;">
+                <li style="padding-left:0;"><a href="index.html#last-ned" class="hover:text-white transition-colors">App Store</a></li>
+                <li style="padding-left:0;"><a href="index.html#last-ned" class="hover:text-white transition-colors">Google Play</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-3">Legal</div>
+              <ul class="space-y-2 text-slate-400" style="list-style:none;padding:0;">
+                <li style="padding-left:0;"><a href="personvern.html" class="hover:text-white transition-colors">Personvern</a></li>
+                <li style="padding-left:0;"><a href="vilkar.html" class="text-white transition-colors">Vilkår</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+          <div>© 2026 Planra. Alle rettigheter forbeholdt.</div>
+          <div>Laget med ❤️ i Norge</div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
