@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Planra — Kobler til Fiken</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    var params = window.location.search;
-    window.location.replace('planra://fiken-callback' + params);
-  </script>
 </head>
 <body class="min-h-screen bg-gray-50 flex items-center justify-center">
   <div class="text-center px-6">
@@ -21,5 +17,9 @@
     <h1 class="text-lg font-semibold text-gray-900">Kobler til Fiken…</h1>
     <p class="text-sm text-gray-500 mt-1">Du sendes tilbake til Planra-appen automatisk.</p>
   </div>
+  <script>
+    var params = window.location.search;
+    window.location.replace('planra://fiken-callback' + params);
+  </script>
 </body>
 </html>
