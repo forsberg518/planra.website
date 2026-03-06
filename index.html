@@ -1407,7 +1407,7 @@
 
     <!-- ===== INTEGRASJONER ===== -->
     <section id="integrasjoner" class="py-24 px-6 bg-[#0c1524]">
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
           <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-medium mb-4">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1415,93 +1415,131 @@
             </svg>
             Integrasjoner
           </div>
-          <h2 class="text-3xl sm:text-4xl font-black mb-4">Koble Planra til Fiken</h2>
+          <h2 class="text-3xl sm:text-4xl font-black mb-4">Koble Planra til dine favorittapper</h2>
           <p class="text-slate-400 max-w-xl mx-auto text-lg">
-            Synkroniser fakturaer og kunder automatisk. Bruk mindre tid på regnskap – og mer tid på trening.
+            Planra fungerer sømløst med verktøyene du allerede bruker.
           </p>
         </div>
 
-        <!-- Integration card -->
-        <div class="glass rounded-3xl p-8 sm:p-12 border border-white/8 relative overflow-hidden card-hover max-w-2xl mx-auto">
-          <!-- Background glow -->
-          <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(59,130,246,0.07) 0%, transparent 70%);"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-          <!-- Logos -->
-          <div class="flex items-center justify-center gap-6 mb-10">
-            <!-- Planra logo -->
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-16 h-16 rounded-2xl bg-[#1e293b] border border-white/10 flex items-center justify-center p-3">
-                <img src="/planra-logo.png" alt="Planra" class="w-full h-full object-contain" />
-              </div>
-              <span class="text-xs text-slate-400 font-medium">Planra</span>
-            </div>
-
-            <!-- Connect arrows -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="flex items-center gap-1">
-                <div class="w-8 h-px bg-gradient-to-r from-blue-500/40 to-blue-400"></div>
-                <div class="w-2 h-2 rounded-full bg-blue-400" style="box-shadow: 0 0 8px rgba(96,165,250,0.8);"></div>
-                <div class="w-8 h-px bg-gradient-to-r from-blue-400 to-blue-500/40"></div>
-              </div>
-              <span class="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Kobles</span>
-            </div>
-
-            <!-- Fiken logo -->
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center p-2.5">
+          <!-- Fiken card -->
+          <div class="glass rounded-3xl p-7 border border-white/8 relative overflow-hidden card-hover flex flex-col">
+            <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(82,57,186,0.1) 0%, transparent 70%);"></div>
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center p-2 flex-shrink-0">
                 <img src="/fiken-logo.svg" alt="Fiken" class="w-full h-full object-contain" />
               </div>
-              <span class="text-xs text-slate-400 font-medium">Fiken</span>
-            </div>
-          </div>
-
-          <!-- Feature bullets -->
-          <div class="grid grid-cols-3 gap-3 mb-10">
-            <div class="flex flex-col items-center text-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-              <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-              </div>
               <div>
-                <div class="text-sm font-semibold text-white leading-snug">Automatiske fakturaer</div>
-                <div class="text-xs text-slate-400 mt-1 leading-relaxed">Sendes til Fiken etter hver time</div>
+                <div class="font-bold text-white">Fiken</div>
+                <div class="text-xs text-slate-400">Regnskap</div>
               </div>
             </div>
-            <div class="flex flex-col items-center text-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-              <div class="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <div>
-                <div class="text-sm font-semibold text-white leading-snug">Kundesynkronisering</div>
-                <div class="text-xs text-slate-400 mt-1 leading-relaxed">Oppdateres automatisk i begge apper</div>
-              </div>
-            </div>
-            <div class="flex flex-col items-center text-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-              <div class="w-10 h-10 rounded-xl bg-green-500/15 border border-green-500/20 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div>
-                <div class="text-sm font-semibold text-white leading-snug">Inntektsoversikt</div>
-                <div class="text-xs text-slate-400 mt-1 leading-relaxed">Alt i Fiken – ingen manuell bokføring</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTA -->
-          <div class="text-center">
-            <p class="text-xs text-slate-500 mb-3">Krev en aktiv Fiken-konto. Kobles i appen under Innstillinger.</p>
-            <a href="#last-ned" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-full font-semibold text-sm transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-              </svg>
-              Kom i gang med Fiken-integrasjonen
+            <!-- Features -->
+            <ul class="space-y-2.5 mb-6 flex-1">
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#5239BA] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Automatiske fakturaer etter hver time
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#5239BA] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Kundesynkronisering i begge apper
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#5239BA] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Ingen manuell bokføring
+              </li>
+            </ul>
+            <a href="#last-ned" class="inline-flex items-center justify-center gap-2 bg-[#5239BA]/20 hover:bg-[#5239BA]/30 border border-[#5239BA]/30 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-colors">
+              Koble til Fiken
             </a>
           </div>
+
+          <!-- Google Calendar card -->
+          <div class="glass rounded-3xl p-7 border border-white/8 relative overflow-hidden card-hover flex flex-col">
+            <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(66,133,244,0.1) 0%, transparent 70%);"></div>
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center p-2 flex-shrink-0">
+                <!-- Google Calendar icon -->
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                  <rect x="6" y="6" width="36" height="36" rx="4" fill="white" stroke="#E0E0E0" stroke-width="1"/>
+                  <rect x="6" y="6" width="36" height="10" rx="4" fill="#4285F4"/>
+                  <rect x="6" y="12" width="36" height="4" fill="#4285F4"/>
+                  <rect x="6" y="16" width="36" height="1" fill="#E0E0E0"/>
+                  <text x="24" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#4285F4">8</text>
+                  <rect x="14" y="3" width="4" height="8" rx="2" fill="#4285F4"/>
+                  <rect x="30" y="3" width="4" height="8" rx="2" fill="#4285F4"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-bold text-white">Google Kalender</div>
+                <div class="text-xs text-slate-400">Kalender</div>
+              </div>
+            </div>
+            <!-- Features -->
+            <ul class="space-y-2.5 mb-6 flex-1">
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#4285F4] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Timer synkroniseres automatisk
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#4285F4] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Se Planra-timene i Google Kalender
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#4285F4] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Unngå dobbeltbookinger
+              </li>
+            </ul>
+            <a href="#last-ned" class="inline-flex items-center justify-center gap-2 bg-[#4285F4]/20 hover:bg-[#4285F4]/30 border border-[#4285F4]/30 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-colors">
+              Koble til Google Kalender
+            </a>
+          </div>
+
+          <!-- Apple Calendar card -->
+          <div class="glass rounded-3xl p-7 border border-white/8 relative overflow-hidden card-hover flex flex-col">
+            <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(255,59,48,0.08) 0%, transparent 70%);"></div>
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center p-2 flex-shrink-0">
+                <!-- Apple Calendar icon -->
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                  <rect x="4" y="8" width="40" height="36" rx="6" fill="white" stroke="#E0E0E0" stroke-width="1"/>
+                  <rect x="4" y="8" width="40" height="12" rx="6" fill="#FF3B30"/>
+                  <rect x="4" y="14" width="40" height="6" fill="#FF3B30"/>
+                  <text x="24" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="8" fill="white">MARS</text>
+                  <text x="24" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#1C1C1E">6</text>
+                  <rect x="14" y="4" width="4" height="8" rx="2" fill="#636366"/>
+                  <rect x="30" y="4" width="4" height="8" rx="2" fill="#636366"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-bold text-white">Apple Kalender</div>
+                <div class="text-xs text-slate-400">Kalender</div>
+              </div>
+            </div>
+            <!-- Features -->
+            <ul class="space-y-2.5 mb-6 flex-1">
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#FF3B30] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Timer synkroniseres automatisk
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#FF3B30] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Se Planra-timene i Kalender-appen
+              </li>
+              <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                <svg class="w-4 h-4 text-[#FF3B30] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Fungerer med iCloud-synkronisering
+              </li>
+            </ul>
+            <a href="#last-ned" class="inline-flex items-center justify-center gap-2 bg-[#FF3B30]/10 hover:bg-[#FF3B30]/20 border border-[#FF3B30]/25 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-colors">
+              Koble til Apple Kalender
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
