@@ -178,6 +178,57 @@
         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 20%, rgba(59,130,246,0.12) 50%, rgba(255,255,255,0.06) 80%, transparent);
       }
 
+      /* ===== STICKY SCROLL (Apple-style) ===== */
+      @media (min-width: 1024px) {
+        .sticky-phone {
+          position: sticky;
+          top: 50%;
+          transform: translateY(-50%);
+          align-self: flex-start;
+        }
+      }
+
+      /* Parallax scale effect on feature cards */
+      .scroll-scale {
+        opacity: 0;
+        transform: scale(0.92);
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .scroll-scale.revealed {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* How it works: sticky step reveal */
+      .sticky-steps-wrap {
+        position: relative;
+      }
+      @media (min-width: 768px) {
+        .sticky-steps-wrap {
+          min-height: 200vh;
+        }
+        .sticky-steps-inner {
+          position: sticky;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .step-item {
+        opacity: 0;
+        transform: translateY(32px) scale(0.96);
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .step-item.step-active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Scroll-linked phone transform */
+      .scroll-phone {
+        transition: transform 0.1s linear;
+        will-change: transform;
+      }
+
       .section-fade {
         animation: slide-up 0.6s ease forwards;
       }
@@ -866,8 +917,8 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <!-- Phone mockup: Sessions screen -->
-          <div class="flex-1 flex justify-center">
-            <div class="phone-shadow float-c" style="--rotate: -3deg; transform: rotate(-3deg);">
+          <div class="flex-1 flex justify-center sticky-phone">
+            <div class="phone-shadow float-c scroll-phone" style="--rotate: -3deg; transform: rotate(-3deg);">
               <div class="relative bg-[#0f172a] rounded-[40px] w-[260px] border-2 border-slate-700 overflow-hidden" style="height: 540px;">
                 <!-- Notch -->
                 <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-10"></div>
@@ -1029,8 +1080,8 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
           <!-- Phone mockup: Client home -->
-          <div class="flex-1 flex justify-center">
-            <div class="phone-shadow float-a" style="--rotate: 3deg; transform: rotate(3deg);">
+          <div class="flex-1 flex justify-center sticky-phone">
+            <div class="phone-shadow float-a scroll-phone" style="--rotate: 3deg; transform: rotate(3deg);">
               <div class="relative bg-[#0f172a] rounded-[40px] w-[260px] border-2 border-slate-700 overflow-hidden" style="height: 540px;">
                 <!-- Notch -->
                 <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-10"></div>
@@ -1184,7 +1235,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <!-- Card 1 -->
-          <div class="glass rounded-2xl p-6 card-hover reveal">
+          <div class="glass rounded-2xl p-6 card-hover scroll-scale">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
             </div>
@@ -1194,7 +1245,7 @@
             </p>
           </div>
           <!-- Card 2 -->
-          <div class="glass rounded-2xl p-6 card-hover reveal">
+          <div class="glass rounded-2xl p-6 card-hover scroll-scale">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
             </div>
@@ -1204,7 +1255,7 @@
             </p>
           </div>
           <!-- Card 3 -->
-          <div class="glass rounded-2xl p-6 card-hover reveal">
+          <div class="glass rounded-2xl p-6 card-hover scroll-scale">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             </div>
@@ -1214,7 +1265,7 @@
             </p>
           </div>
           <!-- Card 4 -->
-          <div class="glass rounded-2xl p-6 card-hover reveal">
+          <div class="glass rounded-2xl p-6 card-hover scroll-scale">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
@@ -1224,7 +1275,7 @@
             </p>
           </div>
           <!-- Card 5 -->
-          <div class="glass rounded-2xl p-6 card-hover reveal">
+          <div class="glass rounded-2xl p-6 card-hover scroll-scale">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
             </div>
@@ -1234,7 +1285,7 @@
             </p>
           </div>
           <!-- Card 6 -->
-          <div class="glass rounded-2xl p-6 card-hover reveal">
+          <div class="glass rounded-2xl p-6 card-hover scroll-scale">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
             </div>
@@ -1249,45 +1300,47 @@
 
     <!-- ===== HOW IT WORKS ===== -->
     <div class="section-divider"></div>
-    <section class="py-28 px-6 bg-[#0c1524]">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-black tracking-[-0.02em] mb-4 reveal">Kom i gang på 3 minutter</h2>
-        <p class="text-slate-400 text-lg mb-16">
-          Planra er intuitivt og enkelt å sette opp. Ingen opplæring nødvendig.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          <!-- Connecting line (desktop) -->
-          <div class="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30" style="left: 22%; right: 22%; top: 40px;"></div>
+    <section class="px-6 bg-[#0c1524]">
+      <div class="max-w-4xl mx-auto text-center sticky-steps-wrap py-28">
+        <div class="sticky-steps-inner">
+          <h2 class="text-3xl sm:text-4xl font-black tracking-[-0.02em] mb-4 reveal">Kom i gang på 3 minutter</h2>
+          <p class="text-slate-400 text-lg mb-16 reveal">
+            Planra er intuitivt og enkelt å sette opp. Ingen opplæring nødvendig.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <!-- Connecting line (desktop) -->
+            <div class="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30" style="left: 22%; right: 22%; top: 40px;"></div>
 
-          <!-- Step 1 -->
-          <div class="flex flex-col items-center">
-            <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 relative z-10" data-glow="blue">
-              <span class="text-xl font-black">1</span>
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center step-item" data-step="0">
+              <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 relative z-10" data-glow="blue">
+                <span class="text-xl font-black">1</span>
+              </div>
+              <h3 class="font-bold text-lg mb-2">Last ned Planra</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Finn appen i App Store, last den ned gratis og opprett en konto som trener eller kunde.
+              </p>
             </div>
-            <h3 class="font-bold text-lg mb-2">Last ned Planra</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Finn appen i App Store, last den ned gratis og opprett en konto som trener eller kunde.
-            </p>
-          </div>
-          <!-- Step 2 -->
-          <div class="flex flex-col items-center">
-            <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-6 relative z-10" data-glow="purple">
-              <span class="text-xl font-black">2</span>
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center step-item" data-step="1">
+              <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-6 relative z-10" data-glow="purple">
+                <span class="text-xl font-black">2</span>
+              </div>
+              <h3 class="font-bold text-lg mb-2">Koble til kunder</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Som trener inviterer du kundene dine direkte fra appen. De mottar en lenke og er klare på sekunder.
+              </p>
             </div>
-            <h3 class="font-bold text-lg mb-2">Koble til kunder</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Som trener inviterer du kundene dine direkte fra appen. De mottar en lenke og er klare på sekunder.
-            </p>
-          </div>
-          <!-- Step 3 -->
-          <div class="flex flex-col items-center">
-            <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 relative z-10" data-glow="green">
-              <span class="text-xl font-black">3</span>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center step-item" data-step="2">
+              <div class="step-circle w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 relative z-10" data-glow="green">
+                <span class="text-xl font-black">3</span>
+              </div>
+              <h3 class="font-bold text-lg mb-2">Start bookingen</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Legg til timer i kalenderen, la kunder be om timer, og chat direkte. Alt fungerer fra dag én.
+              </p>
             </div>
-            <h3 class="font-bold text-lg mb-2">Start bookingen</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Legg til timer i kalenderen, la kunder be om timer, og chat direkte. Alt fungerer fra dag én.
-            </p>
           </div>
         </div>
       </div>
@@ -1847,6 +1900,67 @@
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
       document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // Scroll-scale cards (Apple-style zoom in)
+      const scaleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            scaleObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      document.querySelectorAll('.scroll-scale').forEach(el => scaleObserver.observe(el));
+
+      // Sticky steps: stagger reveal as section scrolls
+      const stepItems = document.querySelectorAll('.step-item');
+      const stepsWrap = document.querySelector('.sticky-steps-wrap');
+      if (stepsWrap && stepItems.length) {
+        const stepObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              stepItems.forEach((step, i) => {
+                setTimeout(() => {
+                  step.classList.add('step-active');
+                  // Trigger glow on circle
+                  const circle = step.querySelector('.step-circle');
+                  if (circle) {
+                    circle.classList.remove('glow-active');
+                    void circle.offsetWidth;
+                    circle.classList.add('glow-active');
+                  }
+                }, i * 300);
+              });
+              stepObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        stepObserver.observe(stepsWrap);
+      }
+
+      // Parallax phone tilt on scroll
+      const scrollPhones = document.querySelectorAll('.scroll-phone');
+      if (scrollPhones.length) {
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              scrollPhones.forEach(phone => {
+                const rect = phone.getBoundingClientRect();
+                const center = rect.top + rect.height / 2;
+                const viewCenter = window.innerHeight / 2;
+                const offset = (center - viewCenter) / window.innerHeight;
+                const baseRotate = parseFloat(phone.style.getPropertyValue('--rotate')) || 0;
+                const tilt = offset * 3;
+                phone.style.transform = `rotate(${baseRotate}deg) translateY(${tilt * 8}px)`;
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      }
 
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
