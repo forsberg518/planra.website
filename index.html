@@ -260,6 +260,131 @@
       .step-circle.glow-active[data-glow="purple"] { animation: glow-pop-purple 0.7s ease forwards; }
       .step-circle.glow-active[data-glow="green"]  { animation: glow-pop-green  0.7s ease forwards; }
 
+      /* ===== PHONE MOTION DESIGN ===== */
+
+      /* 3D entrance for hero phones */
+      @keyframes phone-entrance-left {
+        0%   { opacity: 0; transform: perspective(1200px) rotateY(25deg) rotateX(8deg) translateX(-60px) translateZ(-80px) rotate(-6deg); }
+        60%  { opacity: 1; transform: perspective(1200px) rotateY(-3deg) rotateX(-1deg) translateX(5px) translateZ(0) rotate(-6deg); }
+        100% { opacity: 1; transform: perspective(1200px) rotateY(0) rotateX(0) translateX(0) translateZ(0) rotate(-6deg); }
+      }
+      @keyframes phone-entrance-right {
+        0%   { opacity: 0; transform: perspective(1200px) rotateY(-25deg) rotateX(8deg) translateX(60px) translateZ(-80px) rotate(4deg); }
+        60%  { opacity: 1; transform: perspective(1200px) rotateY(3deg) rotateX(-1deg) translateX(-5px) translateZ(0) rotate(4deg); }
+        100% { opacity: 1; transform: perspective(1200px) rotateY(0) rotateX(0) translateX(0) translateZ(0) rotate(4deg); }
+      }
+      .phone-enter-left {
+        opacity: 0;
+        animation: phone-entrance-left 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+      }
+      .phone-enter-right {
+        opacity: 0;
+        animation: phone-entrance-right 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+
+      /* Shimmer / light sweep across phone screen */
+      @keyframes screen-shimmer {
+        0%   { transform: translateX(-100%) skewX(-15deg); }
+        100% { transform: translateX(250%) skewX(-15deg); }
+      }
+      .phone-shimmer::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 55%, transparent 60%);
+        z-index: 20;
+        pointer-events: none;
+        border-radius: inherit;
+        animation: screen-shimmer 3s ease-in-out 1.8s;
+        animation-fill-mode: forwards;
+        transform: translateX(-100%) skewX(-15deg);
+      }
+
+      /* Staggered card slide-in for session items */
+      @keyframes card-slide-in {
+        0%   { opacity: 0; transform: translateX(30px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+      .phone-card-animate {
+        opacity: 0;
+      }
+      .phone-card-animate.animate-in {
+        animation: card-slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Counter number pop */
+      @keyframes number-pop {
+        0%   { transform: scale(0.5); opacity: 0; }
+        60%  { transform: scale(1.15); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      .stat-animate {
+        opacity: 0;
+      }
+      .stat-animate.animate-in {
+        animation: number-pop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Progress bar fill animation */
+      @keyframes bar-fill {
+        0%   { width: 0%; }
+      }
+      .progress-animate {
+        animation: bar-fill 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Chat message appear */
+      @keyframes msg-appear {
+        0%   { opacity: 0; transform: translateY(12px) scale(0.95); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .chat-msg-animate {
+        opacity: 0;
+      }
+      .chat-msg-animate.animate-in {
+        animation: msg-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Soft phone glow pulse when in view */
+      @keyframes phone-glow-pulse {
+        0%, 100% { box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3), 0 0 80px rgba(59,130,246,0.06); }
+        50%      { box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3), 0 0 120px rgba(59,130,246,0.15); }
+      }
+      .phone-glow-active {
+        animation: phone-glow-pulse 4s ease-in-out infinite;
+      }
+
+      /* Floating notification badge */
+      @keyframes badge-bounce {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.3); }
+      }
+      .badge-animate {
+        animation: badge-bounce 2s ease-in-out infinite;
+      }
+
+      /* Countdown pulse */
+      @keyframes countdown-pulse {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.04); }
+      }
+      .countdown-animate {
+        animation: countdown-pulse 2s ease-in-out infinite;
+      }
+
+      /* Section phone entrance */
+      @keyframes phone-section-enter {
+        0%   { opacity: 0; transform: perspective(800px) rotateY(12deg) translateY(40px) scale(0.92); }
+        100% { opacity: 1; transform: perspective(800px) rotateY(0) translateY(0) scale(1); }
+      }
+      .phone-section-animate {
+        opacity: 0;
+        transition: opacity 0.01s;
+      }
+      .phone-section-animate.phone-glow-active {
+        animation: phone-section-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, phone-glow-pulse 4s ease-in-out 0.9s infinite;
+      }
+
       /* ===== LOADER ===== */
       @keyframes loader-logo-in {
         from { opacity: 0; transform: scale(0.8) translateY(8px); }
@@ -637,11 +762,11 @@
 
           <!-- Phone 1: Calendar (back, left) – hidden on mobile -->
           <div
-            class="hidden lg:block absolute float-b phone-shadow"
-            style="left: 0; top: 40px; z-index: 1; --rotate: -6deg; transform: rotate(-6deg);"
+            class="hidden lg:block absolute phone-enter-left phone-shadow"
+            style="left: 0; top: 40px; z-index: 1; --rotate: -6deg;"
           >
             <div
-              class="relative bg-[#0f172a] rounded-[36px] w-[200px] border-2 border-slate-700 overflow-hidden"
+              class="relative bg-[#0f172a] rounded-[36px] w-[200px] border-2 border-slate-700 overflow-hidden phone-shimmer"
               style="height: 430px"
             >
               <!-- Notch -->
@@ -758,11 +883,11 @@
 
           <!-- Phone 2: Trainer Dashboard (front, main) -->
           <div
-            class="relative lg:absolute float-a phone-shadow"
-            style="z-index: 2; --rotate: 4deg; transform: rotate(4deg); right: 0; top: 0;"
+            class="relative lg:absolute phone-enter-right phone-shadow"
+            style="z-index: 2; --rotate: 4deg; right: 0; top: 0;"
           >
             <div
-              class="relative bg-[#0f172a] rounded-[36px] w-[220px] border-2 border-slate-700 overflow-hidden"
+              class="relative bg-[#0f172a] rounded-[36px] w-[220px] border-2 border-slate-700 overflow-hidden phone-shimmer"
               style="height: 470px"
             >
               <!-- Notch -->
@@ -795,22 +920,22 @@
                 <!-- Stats row -->
                 <div class="grid grid-cols-3 gap-1.5 mb-3">
                   <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-2 text-center">
-                    <div class="text-[14px] text-blue-400 font-bold">3</div>
+                    <div class="text-[14px] text-blue-400 font-bold stat-animate" data-delay="200">3</div>
                     <div class="text-[7px] text-slate-400">I dag</div>
                   </div>
                   <div class="bg-purple-500/10 border border-purple-500/20 rounded-xl p-2 text-center">
-                    <div class="text-[14px] text-purple-400 font-bold">12</div>
+                    <div class="text-[14px] text-purple-400 font-bold stat-animate" data-delay="400">12</div>
                     <div class="text-[7px] text-slate-400">Kunder</div>
                   </div>
                   <div class="bg-green-500/10 border border-green-500/20 rounded-xl p-2 text-center">
-                    <div class="text-[9px] text-green-400 font-bold">24k</div>
+                    <div class="text-[9px] text-green-400 font-bold stat-animate" data-delay="600">24k</div>
                     <div class="text-[7px] text-slate-400">Inntekt</div>
                   </div>
                 </div>
                 <!-- Sessions -->
                 <div class="text-[9px] text-slate-400 font-medium mb-1.5">Dagens økt</div>
                 <div class="space-y-1.5">
-                  <div class="bg-[#1e293b] rounded-xl p-2 flex items-center gap-2">
+                  <div class="bg-[#1e293b] rounded-xl p-2 flex items-center gap-2 phone-card-animate" data-delay="800">
                     <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-[9px] font-bold text-white">SL</div>
                     <div class="flex-1">
                       <div class="text-[9px] text-white font-medium">Sara Larsen</div>
@@ -818,7 +943,7 @@
                     </div>
                     <span class="text-[6px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded-full">Bekreftet</span>
                   </div>
-                  <div class="bg-[#1e293b] rounded-xl p-2 flex items-center gap-2">
+                  <div class="bg-[#1e293b] rounded-xl p-2 flex items-center gap-2 phone-card-animate" data-delay="1000">
                     <div class="w-7 h-7 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-[9px] font-bold text-white">MK</div>
                     <div class="flex-1">
                       <div class="text-[9px] text-white font-medium">Martin K.</div>
@@ -826,7 +951,7 @@
                     </div>
                     <span class="text-[6px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded-full">Kommende</span>
                   </div>
-                  <div class="bg-[#1e293b] rounded-xl p-2 flex items-center gap-2">
+                  <div class="bg-[#1e293b] rounded-xl p-2 flex items-center gap-2 phone-card-animate" data-delay="1200">
                     <div class="w-7 h-7 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-[9px] font-bold text-white">IH</div>
                     <div class="flex-1">
                       <div class="text-[9px] text-white font-medium">Ida Hansen</div>
@@ -918,7 +1043,7 @@
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <!-- Phone mockup: Sessions screen -->
           <div class="flex-1 flex justify-center sticky-phone">
-            <div class="phone-shadow float-c scroll-phone" style="--rotate: -3deg; transform: rotate(-3deg);">
+            <div class="phone-shadow float-c scroll-phone phone-section-animate" style="--rotate: -3deg; transform: rotate(-3deg);">
               <div class="relative bg-[#0f172a] rounded-[40px] w-[260px] border-2 border-slate-700 overflow-hidden" style="height: 540px;">
                 <!-- Notch -->
                 <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-10"></div>
@@ -957,7 +1082,7 @@
                   <!-- Session list -->
                   <div class="text-[8px] text-slate-400 mb-1.5">Nylige timer</div>
                   <div class="space-y-1.5">
-                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5">
+                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5 phone-card-animate" data-delay="0">
                       <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-[9px] font-bold text-white">SL</div>
                       <div class="flex-1">
                         <div class="text-[9px] text-white font-medium">Sara Larsen</div>
@@ -968,7 +1093,7 @@
                         <span class="text-[6px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded-full">Betalt</span>
                       </div>
                     </div>
-                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5">
+                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5 phone-card-animate" data-delay="150">
                       <div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-[9px] font-bold text-white">MK</div>
                       <div class="flex-1">
                         <div class="text-[9px] text-white font-medium">Martin K.</div>
@@ -979,7 +1104,7 @@
                         <span class="text-[6px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded-full">Fakturert</span>
                       </div>
                     </div>
-                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5">
+                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5 phone-card-animate" data-delay="300">
                       <div class="w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-[9px] font-bold text-white">NB</div>
                       <div class="flex-1">
                         <div class="text-[9px] text-white font-medium">Nora Berg</div>
@@ -990,7 +1115,7 @@
                         <span class="text-[6px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded-full">Kommende</span>
                       </div>
                     </div>
-                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5">
+                    <div class="bg-[#1e293b] rounded-xl p-2.5 flex items-center gap-2.5 phone-card-animate" data-delay="450">
                       <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-[9px] font-bold text-white">IH</div>
                       <div class="flex-1">
                         <div class="text-[9px] text-white font-medium">Ida Hansen</div>
@@ -1081,7 +1206,7 @@
         <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
           <!-- Phone mockup: Client home -->
           <div class="flex-1 flex justify-center sticky-phone">
-            <div class="phone-shadow float-a scroll-phone" style="--rotate: 3deg; transform: rotate(3deg);">
+            <div class="phone-shadow float-a scroll-phone phone-section-animate" style="--rotate: 3deg; transform: rotate(3deg);">
               <div class="relative bg-[#0f172a] rounded-[40px] w-[260px] border-2 border-slate-700 overflow-hidden" style="height: 540px;">
                 <!-- Notch -->
                 <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-10"></div>
@@ -1098,7 +1223,7 @@
                   <div class="text-[9px] text-slate-400">Hei, Sara 👋</div>
                   <div class="text-[13px] text-white font-bold mb-3">Din neste økt</div>
                   <!-- Countdown card -->
-                  <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-4 mb-3">
+                  <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-4 mb-3 countdown-animate">
                     <div class="text-[8px] text-blue-100 mb-1">I morgen · 08:00</div>
                     <div class="text-[14px] text-white font-bold mb-0.5">Styrketrening</div>
                     <div class="text-[8px] text-blue-100 mb-3">med Alex Trener · 60 min</div>
@@ -1128,7 +1253,7 @@
                         <div class="text-[8px] text-blue-400">72%</div>
                       </div>
                       <div class="w-full bg-slate-700 rounded-full h-1.5">
-                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-1.5 rounded-full" style="width: 72%"></div>
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-1.5 rounded-full progress-bar-animated" data-width="72%"></div>
                       </div>
                     </div>
                     <div class="bg-[#1e293b] rounded-xl p-2.5">
@@ -1137,7 +1262,7 @@
                         <div class="text-[8px] text-green-400">90%</div>
                       </div>
                       <div class="w-full bg-slate-700 rounded-full h-1.5">
-                        <div class="bg-gradient-to-r from-green-500 to-teal-400 h-1.5 rounded-full" style="width: 90%"></div>
+                        <div class="bg-gradient-to-r from-green-500 to-teal-400 h-1.5 rounded-full progress-bar-animated" data-width="90%"></div>
                       </div>
                     </div>
                     <div class="bg-[#1e293b] rounded-xl p-2.5">
@@ -1146,7 +1271,7 @@
                         <div class="text-[8px] text-amber-400">50%</div>
                       </div>
                       <div class="w-full bg-slate-700 rounded-full h-1.5">
-                        <div class="bg-gradient-to-r from-amber-500 to-orange-400 h-1.5 rounded-full" style="width: 50%"></div>
+                        <div class="bg-gradient-to-r from-amber-500 to-orange-400 h-1.5 rounded-full progress-bar-animated" data-width="50%"></div>
                       </div>
                     </div>
                   </div>
@@ -1387,7 +1512,7 @@
 
           <!-- Chat mockup phone -->
           <div class="flex-1 flex justify-center">
-            <div class="phone-shadow" style="transform: rotate(2deg);">
+            <div class="phone-shadow phone-section-animate" style="transform: rotate(2deg);">
               <div class="relative bg-[#0f172a] rounded-[40px] w-[260px] border-2 border-slate-700 overflow-hidden" style="height: 520px;">
                 <!-- Notch -->
                 <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-10"></div>
@@ -1414,34 +1539,34 @@
                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   </div>
                   <!-- Messages -->
-                  <div class="flex-1 px-3 py-3 space-y-2 overflow-hidden">
-                    <div class="flex gap-2">
+                  <div class="flex-1 px-3 py-3 space-y-2 overflow-hidden" id="chat-messages">
+                    <div class="flex gap-2 chat-msg-animate" data-delay="0">
                       <div class="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-[6px] font-bold text-white">AL</div>
                       <div class="bg-[#1e293b] rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[70%]">
                         <div class="text-[8px] text-white">Hei Sara! Husk å drikke nok vann i dag 💧</div>
                         <div class="text-[6px] text-slate-500 mt-0.5">08:22</div>
                       </div>
                     </div>
-                    <div class="flex gap-2 flex-row-reverse">
+                    <div class="flex gap-2 flex-row-reverse chat-msg-animate" data-delay="300">
                       <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[70%]">
                         <div class="text-[8px] text-white">Takk for tips! Gleder meg til treningen i morgen 💪</div>
                         <div class="text-[6px] text-blue-200 mt-0.5 text-right">08:35</div>
                       </div>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 chat-msg-animate" data-delay="600">
                       <div class="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-[6px] font-bold text-white">AL</div>
                       <div class="bg-[#1e293b] rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[70%]">
                         <div class="text-[8px] text-white">Vi starter med benkpress og squats i morgen. Ha med deg belte!</div>
                         <div class="text-[6px] text-slate-500 mt-0.5">08:37</div>
                       </div>
                     </div>
-                    <div class="flex gap-2 flex-row-reverse">
+                    <div class="flex gap-2 flex-row-reverse chat-msg-animate" data-delay="900">
                       <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[70%]">
                         <div class="text-[8px] text-white">Perfekt, det tar jeg med! Ser deg kl 08:00 🏋️</div>
                         <div class="text-[6px] text-blue-200 mt-0.5 text-right">08:40</div>
                       </div>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 chat-msg-animate" data-delay="1200">
                       <div class="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-[6px] font-bold text-white">AL</div>
                       <div class="bg-[#1e293b] rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[70%]">
                         <div class="text-[8px] text-white">Vi sees! 🎯</div>
@@ -1961,6 +2086,71 @@
           }
         }, { passive: true });
       }
+
+      // ===== PHONE MOTION ANIMATIONS =====
+
+      // Animate phone inner elements when phone scrolls into view
+      const phoneAnimObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const phone = entry.target;
+
+            // Animate cards sliding in
+            phone.querySelectorAll('.phone-card-animate').forEach(card => {
+              const delay = parseInt(card.dataset.delay) || 0;
+              setTimeout(() => card.classList.add('animate-in'), delay);
+            });
+
+            // Animate stat numbers popping
+            phone.querySelectorAll('.stat-animate').forEach(stat => {
+              const delay = parseInt(stat.dataset.delay) || 0;
+              setTimeout(() => stat.classList.add('animate-in'), delay);
+            });
+
+            // Animate progress bars filling
+            phone.querySelectorAll('.progress-bar-animated').forEach((bar, i) => {
+              const targetWidth = bar.dataset.width;
+              bar.style.width = '0%';
+              setTimeout(() => {
+                bar.style.transition = 'width 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                bar.style.width = targetWidth;
+              }, 300 + i * 200);
+            });
+
+            // Animate chat messages appearing
+            phone.querySelectorAll('.chat-msg-animate').forEach(msg => {
+              const delay = parseInt(msg.dataset.delay) || 0;
+              setTimeout(() => msg.classList.add('animate-in'), delay + 200);
+            });
+
+            // Add glow pulse
+            phone.classList.add('phone-glow-active');
+
+            phoneAnimObserver.unobserve(phone);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      // Observe all section phones
+      document.querySelectorAll('.phone-section-animate').forEach(el => phoneAnimObserver.observe(el));
+
+      // Hero phone animations trigger on load (they're visible immediately)
+      const heroPhones = document.querySelectorAll('.phone-enter-right, .phone-enter-left');
+      heroPhones.forEach(phone => {
+        const inner = phone.querySelector('[class*="bg-[#0f172a]"]');
+        if (!inner) return;
+        // Delayed inner animations after entrance completes
+        setTimeout(() => {
+          inner.querySelectorAll('.stat-animate').forEach(stat => {
+            const delay = parseInt(stat.dataset.delay) || 0;
+            setTimeout(() => stat.classList.add('animate-in'), delay);
+          });
+          inner.querySelectorAll('.phone-card-animate').forEach(card => {
+            const delay = parseInt(card.dataset.delay) || 0;
+            setTimeout(() => card.classList.add('animate-in'), delay);
+          });
+        }, 1400);
+      });
 
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
