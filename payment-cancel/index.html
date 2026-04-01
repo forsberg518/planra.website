@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planra — Betaling avbrutt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center">
+  <div class="text-center px-6">
+    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+      <svg class="w-8 h-8 text-blue-600 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+    </div>
+    <h1 class="text-lg font-semibold text-gray-900">Betaling avbrutt</h1>
+    <p class="text-sm text-gray-500 mt-1">Du sendes tilbake til Planra-appen automatisk.</p>
+  </div>
+  <script>
+    var params = window.location.search;
+    window.location.replace('planra://payment-cancel' + params);
+  </script>
+</body>
+</html>
