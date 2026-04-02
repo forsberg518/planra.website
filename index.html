@@ -758,28 +758,28 @@
         </div>
 
         <!-- Right: Phone mockups -->
-        <div class="flex-1 flex items-center justify-center relative w-full" style="min-height: 580px;">
+        <div class="flex-1 flex items-end justify-center relative w-full lg:min-h-[600px]">
           <!-- Glow orbs -->
           <div class="absolute w-64 h-64 rounded-full opacity-20 blur-3xl pointer-events-none" style="background: radial-gradient(circle, #3b82f6, transparent); top: 10%; left: 20%;"></div>
           <div class="absolute w-48 h-48 rounded-full opacity-15 blur-3xl pointer-events-none" style="background: radial-gradient(circle, #8b5cf6, transparent); bottom: 10%; right: 20%;"></div>
 
           <!-- Phone 1: Hjem (back, left) – hidden on mobile -->
           <div
-            class="hidden lg:block absolute phone-enter-left phone-shadow-img"
-            style="left: 0; top: 50px; z-index: 1; --rotate: -6deg;"
+            class="hidden lg:block phone-enter-left phone-shadow-img"
+            style="z-index: 1; --rotate: -6deg; margin-right: -40px;"
           >
             <img
               src="hero-left.png"
               alt="Planra Hjem-skjerm"
-              class="w-[260px]"
+              class="w-[280px]"
               style="height: auto;"
             />
           </div>
 
           <!-- Phone 2: Kalender (front, main) -->
           <div
-            class="relative lg:absolute phone-enter-right phone-shadow-img"
-            style="z-index: 2; --rotate: 4deg; right: 0; top: 0;"
+            class="phone-enter-right phone-shadow-img"
+            style="z-index: 2; --rotate: 4deg; margin-left: -40px;"
           >
             <img
               src="hero-right.png"
@@ -835,7 +835,7 @@
 
     <!-- ===== FOR TRAINERS ===== -->
     <div class="section-divider"></div>
-    <section id="trenere" class="py-28 px-6 relative overflow-hidden">
+    <section id="trenere" class="py-28 px-6 relative overflow-x-hidden">
       <div class="absolute inset-0 pointer-events-none">
         <div class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 blur-3xl" style="background: radial-gradient(circle, #3b82f6, transparent);"></div>
       </div>
@@ -843,11 +843,11 @@
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <!-- Phone mockup: Ny time screen -->
           <div class="flex-1 flex justify-center sticky-phone">
-            <div class="phone-shadow-img float-c scroll-phone phone-section-animate" style="--rotate: -3deg; transform: rotate(-3deg);">
+            <div class="phone-shadow-img float-c scroll-phone phone-section-animate" style="--rotate: -2deg; transform: rotate(-2deg);">
               <img
                 src="section-ny-time.png"
                 alt="Planra Ny time-skjerm"
-                class="w-[300px]"
+                class="w-[280px]"
                 style="height: auto;"
               />
             </div>
@@ -912,7 +912,7 @@
 
     <!-- ===== FOR CLIENTS ===== -->
     <div class="section-divider"></div>
-    <section id="kunder" class="py-28 px-6 bg-[#0c1524] relative overflow-hidden">
+    <section id="kunder" class="py-28 px-6 bg-[#0c1524] relative overflow-x-hidden">
       <div class="absolute inset-0 pointer-events-none">
         <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-5 blur-3xl" style="background: radial-gradient(circle, #8b5cf6, transparent);"></div>
       </div>
@@ -920,11 +920,11 @@
         <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
           <!-- Phone mockup: Fakturering screen -->
           <div class="flex-1 flex justify-center sticky-phone">
-            <div class="phone-shadow-img float-a scroll-phone phone-section-animate" style="--rotate: 3deg; transform: rotate(3deg);">
+            <div class="phone-shadow-img float-a scroll-phone phone-section-animate" style="--rotate: 2deg; transform: rotate(2deg);">
               <img
                 src="section-fakturering.png"
                 alt="Planra Fakturering-skjerm"
-                class="w-[300px]"
+                class="w-[280px]"
                 style="height: auto;"
               />
             </div>
@@ -1152,11 +1152,11 @@
 
           <!-- Phone mockup: Integrasjoner screen -->
           <div class="flex-1 flex justify-center">
-            <div class="phone-shadow-img phone-section-animate" style="transform: rotate(2deg);">
+            <div class="phone-shadow-img phone-section-animate" style="transform: rotate(1deg);">
               <img
                 src="section-integrasjoner.png"
                 alt="Planra Integrasjoner-skjerm"
-                class="w-[300px]"
+                class="w-[280px]"
                 style="height: auto;"
               />
             </div>
