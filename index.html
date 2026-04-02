@@ -356,6 +356,13 @@
       .phone-glow-active {
         animation: phone-glow-pulse 4s ease-in-out infinite;
       }
+      @keyframes phone-glow-pulse-img {
+        0%, 100% { filter: drop-shadow(0 50px 80px rgba(0,0,0,0.5)) drop-shadow(0 20px 30px rgba(0,0,0,0.3)) drop-shadow(0 0 60px rgba(59,130,246,0.06)); }
+        50%      { filter: drop-shadow(0 50px 80px rgba(0,0,0,0.5)) drop-shadow(0 20px 30px rgba(0,0,0,0.3)) drop-shadow(0 0 80px rgba(59,130,246,0.15)); }
+      }
+      .phone-glow-active-img {
+        animation: phone-glow-pulse-img 4s ease-in-out infinite;
+      }
 
       /* Floating notification badge */
       @keyframes badge-bounce {
@@ -386,6 +393,9 @@
       }
       .phone-section-animate.phone-glow-active {
         animation: phone-section-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, phone-glow-pulse 4s ease-in-out 0.9s infinite;
+      }
+      .phone-section-animate.phone-shadow-img.phone-glow-active {
+        animation: phone-section-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, phone-glow-pulse-img 4s ease-in-out 0.9s infinite;
       }
 
       /* ===== LOADER ===== */
