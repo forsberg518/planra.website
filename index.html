@@ -147,6 +147,9 @@
         box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5),
           0 20px 40px rgba(0, 0, 0, 0.3), 0 0 80px rgba(59, 130, 246, 0.06);
       }
+      .phone-shadow-img {
+        filter: drop-shadow(0 50px 80px rgba(0, 0, 0, 0.5)) drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+      }
 
       .card-hover {
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
@@ -762,26 +765,26 @@
 
           <!-- Phone 1: Hjem (back, left) – hidden on mobile -->
           <div
-            class="hidden lg:block absolute phone-enter-left phone-shadow"
+            class="hidden lg:block absolute phone-enter-left phone-shadow-img"
             style="left: 0; top: 40px; z-index: 1; --rotate: -6deg;"
           >
             <img
               src="hero-left.png"
               alt="Planra Hjem-skjerm"
-              class="w-[200px] rounded-[8px]"
+              class="w-[200px]"
               style="height: auto;"
             />
           </div>
 
           <!-- Phone 2: Kalender (front, main) -->
           <div
-            class="relative lg:absolute phone-enter-right phone-shadow"
+            class="relative lg:absolute phone-enter-right phone-shadow-img"
             style="z-index: 2; --rotate: 4deg; right: 0; top: 0;"
           >
             <img
               src="hero-right.png"
               alt="Planra Kalender-skjerm"
-              class="w-[220px] rounded-[8px]"
+              class="w-[220px]"
               style="height: auto;"
             />
           </div>
@@ -840,11 +843,11 @@
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <!-- Phone mockup: Ny time screen -->
           <div class="flex-1 flex justify-center sticky-phone">
-            <div class="phone-shadow float-c scroll-phone phone-section-animate" style="--rotate: -3deg; transform: rotate(-3deg);">
+            <div class="phone-shadow-img float-c scroll-phone phone-section-animate" style="--rotate: -3deg; transform: rotate(-3deg);">
               <img
                 src="section-ny-time.png"
                 alt="Planra Ny time-skjerm"
-                class="w-[260px] rounded-[8px]"
+                class="w-[260px]"
                 style="height: auto;"
               />
             </div>
@@ -917,11 +920,11 @@
         <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
           <!-- Phone mockup: Fakturering screen -->
           <div class="flex-1 flex justify-center sticky-phone">
-            <div class="phone-shadow float-a scroll-phone phone-section-animate" style="--rotate: 3deg; transform: rotate(3deg);">
+            <div class="phone-shadow-img float-a scroll-phone phone-section-animate" style="--rotate: 3deg; transform: rotate(3deg);">
               <img
                 src="section-fakturering.png"
                 alt="Planra Fakturering-skjerm"
-                class="w-[260px] rounded-[8px]"
+                class="w-[260px]"
                 style="height: auto;"
               />
             </div>
@@ -1149,11 +1152,11 @@
 
           <!-- Phone mockup: Integrasjoner screen -->
           <div class="flex-1 flex justify-center">
-            <div class="phone-shadow phone-section-animate" style="transform: rotate(2deg);">
+            <div class="phone-shadow-img phone-section-animate" style="transform: rotate(2deg);">
               <img
                 src="section-integrasjoner.png"
                 alt="Planra Integrasjoner-skjerm"
-                class="w-[260px] rounded-[8px]"
+                class="w-[260px]"
                 style="height: auto;"
               />
             </div>
