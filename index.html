@@ -151,99 +151,6 @@
         filter: drop-shadow(0 50px 80px rgba(0, 0, 0, 0.5)) drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
       }
 
-      /* ===== FLYING INVOICES ===== */
-      @keyframes fly-invoice {
-        0% {
-          opacity: 0;
-          transform: translate(0, 0) rotate(var(--rotate-start)) scale(0.5);
-        }
-        8% {
-          opacity: 1;
-          transform: translate(calc(var(--dx) * 0.08), calc(var(--dy) * 0.08)) rotate(var(--rotate-start)) scale(0.85);
-        }
-        85% {
-          opacity: 0.9;
-          transform: translate(calc(var(--dx) * 0.85), calc(var(--dy) * 0.85)) rotate(var(--rotate-end)) scale(1);
-        }
-        100% {
-          opacity: 0;
-          transform: translate(var(--dx), var(--dy)) rotate(var(--rotate-end)) scale(0.9);
-        }
-      }
-      .flying-invoice {
-        position: absolute;
-        animation: fly-invoice var(--duration) cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-        will-change: transform, opacity;
-      }
-      .flying-invoice::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 100%;
-        width: 100px;
-        height: 2px;
-        transform: translateY(-50%);
-        background: linear-gradient(to left, rgba(59, 130, 246, 0.35), rgba(139, 92, 246, 0.15), transparent);
-        border-radius: 2px;
-        filter: blur(0.5px);
-      }
-      .flying-invoice.from-right::after {
-        right: auto;
-        left: 100%;
-        background: linear-gradient(to right, rgba(59, 130, 246, 0.35), rgba(139, 92, 246, 0.15), transparent);
-      }
-      .invoice-card {
-        background: rgba(15, 23, 42, 0.85);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 10px 14px;
-        min-width: 160px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.08);
-      }
-      .invoice-card .inv-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 6px;
-      }
-      .invoice-card .inv-title {
-        font-size: 9px;
-        font-weight: 700;
-        color: #e2e8f0;
-        letter-spacing: 0.03em;
-      }
-      .invoice-card .inv-badge {
-        font-size: 7px;
-        font-weight: 600;
-        padding: 2px 6px;
-        border-radius: 999px;
-      }
-      .invoice-card .inv-badge.sent {
-        background: rgba(59, 130, 246, 0.2);
-        color: #60a5fa;
-      }
-      .invoice-card .inv-badge.paid {
-        background: rgba(34, 197, 94, 0.2);
-        color: #4ade80;
-      }
-      .invoice-card .inv-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 8px;
-        color: #94a3b8;
-      }
-      .invoice-card .inv-amount {
-        font-size: 13px;
-        font-weight: 800;
-        color: #f1f5f9;
-      }
-      .invoice-card .inv-detail {
-        font-size: 7px;
-        color: #64748b;
-        margin-top: 4px;
-      }
 
       .card-hover {
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
@@ -686,6 +593,300 @@
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
         pointer-events: none;
       }
+
+      /* ===== THEME TOGGLE BUTTON ===== */
+      .theme-toggle {
+        position: relative;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s, border-color 0.3s;
+        color: #94a3b8;
+        flex-shrink: 0;
+      }
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+      }
+      .theme-toggle .icon-sun,
+      .theme-toggle .icon-moon { transition: opacity 0.3s, transform 0.3s; position: absolute; }
+      .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0); }
+      .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+      /* ===== LIGHT MODE ===== */
+
+      /* When light mode is active, swap icons */
+      html.light .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+      html.light .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0); }
+      html.light .theme-toggle {
+        border-color: rgba(0, 0, 0, 0.12);
+        background: rgba(0, 0, 0, 0.04);
+        color: #64748b;
+      }
+      html.light .theme-toggle:hover {
+        background: rgba(0, 0, 0, 0.08);
+        color: #0f172a;
+      }
+
+      /* Body and global text */
+      html.light { color-scheme: light; }
+      html.light body {
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+
+      /* Override Tailwind utility classes in light mode */
+      html.light .text-white { color: #0f172a; }
+      html.light .text-slate-400 { color: #64748b; }
+      html.light .text-slate-300 { color: #475569; }
+      html.light .text-slate-500 { color: #94a3b8; }
+      html.light .text-slate-600 { color: #94a3b8; }
+      html.light .border-white\/5 { border-color: rgba(0, 0, 0, 0.06); }
+      html.light .border-white\/8 { border-color: rgba(0, 0, 0, 0.08); }
+      html.light .border-white\/10 { border-color: rgba(0, 0, 0, 0.1); }
+      html.light .border-slate-700 { border-color: #e2e8f0; }
+      html.light .hover\:text-white:hover { color: #0f172a; }
+      html.light .hover\:border-white\/20:hover { border-color: rgba(0, 0, 0, 0.15); }
+
+      /* Alternate section backgrounds */
+      html.light .bg-\[\#0f172a\] { background-color: #f8fafc; }
+      html.light .bg-\[\#0c1524\] { background-color: #f1f5f9; }
+
+      /* Hero background */
+      html.light .hero-bg {
+        background: radial-gradient(
+            ellipse 60% 50% at 15% 50%,
+            rgba(59, 130, 246, 0.08) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 85% 20%,
+            rgba(139, 92, 246, 0.06) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 40% 40% at 70% 80%,
+            rgba(200, 146, 158, 0.05) 0%,
+            transparent 60%
+          ),
+          #f8fafc;
+      }
+
+      /* Glass panels */
+      html.light .glass {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+      html.light .glass-light {
+        background: rgba(255, 255, 255, 0.5);
+        border-color: rgba(0, 0, 0, 0.06);
+      }
+
+      /* Card hover */
+      html.light .card-hover:hover {
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08), 0 0 24px rgba(59, 130, 246, 0.06);
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+
+      /* Section divider */
+      html.light .section-divider {
+        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06) 20%, rgba(59, 130, 246, 0.12) 50%, rgba(0, 0, 0, 0.06) 80%, transparent);
+      }
+
+      /* Gradient text - more saturated for light bg */
+      html.light .gradient-text {
+        background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #c026d3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      html.light .gradient-text-blue {
+        background: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Phone shadows for light mode */
+      html.light .phone-shadow {
+        box-shadow: 0 50px 100px rgba(0, 0, 0, 0.12), 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 80px rgba(59, 130, 246, 0.04);
+      }
+      html.light .phone-shadow-img {
+        filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+      }
+
+      /* Phone glow pulse - subtle in light mode */
+      html.light .phone-glow-active {
+        animation: phone-glow-pulse-light 4s ease-in-out infinite;
+      }
+      @keyframes phone-glow-pulse-light {
+        0%, 100% { box-shadow: 0 50px 100px rgba(0,0,0,0.1), 0 20px 40px rgba(0,0,0,0.06), 0 0 80px rgba(59,130,246,0.03); }
+        50%      { box-shadow: 0 50px 100px rgba(0,0,0,0.12), 0 20px 40px rgba(0,0,0,0.08), 0 0 120px rgba(59,130,246,0.08); }
+      }
+      html.light .phone-glow-active-img {
+        animation: phone-glow-pulse-img-light 4s ease-in-out infinite;
+      }
+      @keyframes phone-glow-pulse-img-light {
+        0%, 100% { filter: drop-shadow(0 30px 60px rgba(0,0,0,0.12)) drop-shadow(0 10px 20px rgba(0,0,0,0.08)) drop-shadow(0 0 40px rgba(59,130,246,0.03)); }
+        50%      { filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15)) drop-shadow(0 10px 20px rgba(0,0,0,0.1)) drop-shadow(0 0 60px rgba(59,130,246,0.08)); }
+      }
+      html.light .phone-section-animate.phone-glow-active {
+        animation: phone-section-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, phone-glow-pulse-light 4s ease-in-out 0.9s infinite;
+      }
+      html.light .phone-section-animate.phone-shadow-img.phone-glow-active {
+        animation: phone-section-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, phone-glow-pulse-img-light 4s ease-in-out 0.9s infinite;
+      }
+
+      /* Hero grid overlay */
+      html.light #hero-section .absolute.opacity-\[0\.03\] {
+        opacity: 0.04;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.3) 1px, transparent 1px) !important;
+      }
+
+      /* Scroll indicator */
+      html.light .border-slate-700 { border-color: #cbd5e1; }
+
+      /* CTA section background */
+      html.light #last-ned .absolute {
+        background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(59,130,246,0.08) 0%, rgba(139,92,246,0.05) 40%, transparent 70%), #f8fafc !important;
+      }
+
+      /* App Store button in hero - stays the same (white bg with dark text) becomes dark bg with white text */
+      html.light .bg-white.text-black,
+      html.light .bg-white.text-slate-900,
+      html.light a.bg-white {
+        background-color: #0f172a;
+        color: #ffffff;
+      }
+      html.light .bg-white.text-black:hover,
+      html.light .bg-white.text-slate-900:hover,
+      html.light a.bg-white:hover {
+        background-color: #1e293b;
+      }
+      /* Nav "Last ned" button */
+      html.light a.bg-white.text-slate-900 {
+        background-color: #0f172a;
+        color: #ffffff;
+      }
+      html.light a.bg-white.text-slate-900:hover,
+      html.light .hover\:bg-slate-100:hover {
+        background-color: #1e293b;
+        color: #ffffff;
+      }
+      /* App Store button label */
+      html.light .bg-white .text-slate-600,
+      html.light .bg-\[\#0f172a\] .text-slate-600,
+      html.light a.bg-white .text-xs {
+        color: #94a3b8;
+      }
+
+      /* Google Play glass button in light mode */
+      html.light .glass-light.border {
+        background: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Loader - keep dark */
+      html.light #loader {
+        background: #0f172a;
+        color: #ffffff;
+      }
+      html.light #loader .text-white { color: #ffffff; }
+
+      /* Feature pills text */
+      html.light .text-\[11px\].text-slate-500 { color: #64748b; }
+
+      /* Footer borders */
+      html.light .border-t.border-white\/5 { border-color: rgba(0, 0, 0, 0.06); }
+
+      /* Selection */
+      html.light .selection\:text-white::selection { color: #ffffff; }
+
+      /* Glow orbs in hero - reduce for light mode */
+      html.light .opacity-20.blur-3xl { opacity: 0.08; }
+      html.light .opacity-15.blur-3xl { opacity: 0.06; }
+      html.light .opacity-5.blur-3xl { opacity: 0.03; }
+
+      /* Step connecting line */
+      html.light .bg-gradient-to-r.from-blue-500\/30 {
+        opacity: 0.6;
+      }
+
+      /* Smooth transition for theme switching */
+      html.light body,
+      html.light .glass,
+      html.light .glass-light,
+      html.light .hero-bg,
+      html.light .section-divider,
+      html.light .card-hover,
+      html.light .theme-toggle {
+        transition: background 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+
+      /* Integration card text */
+      html.light .font-bold.text-white { color: #0f172a; }
+
+      /* Footer heading text */
+      html.light .font-semibold.text-white { color: #0f172a; }
+
+      /* Integration button text in light mode */
+      html.light .bg-\[\#5239BA\]\/20 { background-color: rgba(82, 57, 186, 0.1); }
+      html.light .bg-\[\#4285F4\]\/20 { background-color: rgba(66, 133, 244, 0.1); }
+      html.light .bg-\[\#FF3B30\]\/10 { background-color: rgba(255, 59, 48, 0.06); }
+
+      /* CTA large buttons */
+      html.light .shadow-xl.shadow-white\/5 {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+      html.light .shadow-lg.shadow-white\/5 {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+      }
+
+      /* CTA Google Play large button */
+      html.light #last-ned .glass.border {
+        background: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Loader ring inner bg stays dark */
+      html.light .loader-ring::after { background: #0f172a; }
+
+      /* Override hover:bg-slate-50 on dark buttons in light mode */
+      html.light .bg-white.text-black.hover\:bg-slate-50:hover,
+      html.light a.hover\:bg-slate-50:hover {
+        background-color: #1e293b;
+        color: #ffffff;
+      }
+
+      /* Keep step number text white in light mode */
+      html.light .step-circle .text-xl { color: #ffffff; }
+      html.light .step-circle span { color: #ffffff; }
+
+      /* Keep gradient icon boxes' inner SVG white */
+      html.light .bg-gradient-to-br .text-white { color: #ffffff; }
+      html.light .w-12.h-12.rounded-2xl .text-white { color: #ffffff; }
+
+      /* Scroll indicator dot */
+      html.light .bg-slate-600 { background-color: #94a3b8; }
+
+      /* Logo stays visible - slightly reduce opacity modifier */
+      html.light .opacity-80 { opacity: 0.9; }
+
+      /* Nav logo - ensure visible */
+      html.light nav img { filter: none; }
+
+      /* Green pulse dot stays green */
+      html.light .bg-green-400 { background-color: #4ade80; }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -694,6 +895,14 @@
       rel="stylesheet"
     />
     <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        if (theme === 'light') document.documentElement.classList.add('light');
+      })();
+    </script>
   </head>
   <body class="bg-[#0f172a] text-white font-sans antialiased overflow-x-hidden selection:bg-blue-500/30 selection:text-white">
 
@@ -743,10 +952,19 @@
           <a href="#trenere" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">For trenere</a>
           <a href="#kunder" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">For kunder</a>
           <a href="#integrasjoner" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">Integrasjoner</a>
+          <button id="theme-toggle-desktop" class="theme-toggle" aria-label="Bytt tema">
+            <svg class="icon-sun w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
           <a href="#last-ned" class="text-sm bg-white text-slate-900 hover:bg-slate-100 px-5 py-2 rounded-full font-semibold transition-all duration-200">Last ned</a>
         </div>
         <!-- Mobile menu button -->
-        <button id="menu-btn" class="md:hidden text-slate-300 p-2" aria-label="Åpne meny">
+        <div class="flex items-center gap-2 md:hidden">
+          <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Bytt tema">
+            <svg class="icon-sun w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+          <button id="menu-btn" class="text-slate-300 p-2" aria-label="Åpne meny">
           <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -754,6 +972,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
+        </div>
       </div>
       <!-- Mobile menu dropdown -->
       <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 px-6 py-4 flex flex-col gap-4">
@@ -766,8 +985,6 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero-bg min-h-screen pt-16 relative overflow-hidden" id="hero-section">
-      <!-- Flying invoices container -->
-      <div id="flying-invoices" class="absolute inset-0 pointer-events-none overflow-hidden z-[1]"></div>
       <!-- Background grid -->
       <div
         class="absolute inset-0 opacity-[0.03]"
@@ -1796,85 +2013,52 @@
         }, 1400);
       });
 
-      // ===== FLYING INVOICES =====
+      // ===== THEME TOGGLE =====
       (function() {
-        const container = document.getElementById('flying-invoices');
-        if (!container) return;
+        const html = document.documentElement;
+        const toggleDesktop = document.getElementById('theme-toggle-desktop');
+        const toggleMobile = document.getElementById('theme-toggle-mobile');
 
-        const customers = [
-          { name: 'Sara L.', initials: 'SL', color: '#3b82f6' },
-          { name: 'Martin K.', initials: 'MK', color: '#f97316' },
-          { name: 'Ida H.', initials: 'IH', color: '#ec4899' },
-          { name: 'Nora B.', initials: 'NB', color: '#14b8a6' },
-          { name: 'Jonas R.', initials: 'JR', color: '#8b5cf6' },
-          { name: 'Emma S.', initials: 'ES', color: '#eab308' },
-        ];
-        const types = ['Styrketrening', 'Kondisjon', 'HIIT', 'Løping'];
-        const amounts = [750, 850, 900, 1000, 1200, 650, 800];
-
-        function createInvoice() {
-          const c = customers[Math.floor(Math.random() * customers.length)];
-          const type = types[Math.floor(Math.random() * types.length)];
-          const amount = amounts[Math.floor(Math.random() * amounts.length)];
-          const isPaid = Math.random() > 0.5;
-          const duration = 6 + Math.random() * 4; // 6-10s
-
-          // Start from left or right edge
-          const fromLeft = Math.random() > 0.5;
-          const startX = fromLeft ? -200 : window.innerWidth + 200;
-          const startY = 80 + Math.random() * (window.innerHeight * 0.6);
-          const dx = fromLeft ? window.innerWidth + 400 : -(window.innerWidth + 400);
-          const dy = (Math.random() - 0.5) * 200;
-          const rotStart = (Math.random() - 0.5) * 12;
-          const rotEnd = (Math.random() - 0.5) * 8;
-
-          const el = document.createElement('div');
-          el.className = 'flying-invoice';
-          el.style.cssText = `
-            left: ${startX}px;
-            top: ${startY}px;
-            --dx: ${dx}px;
-            --dy: ${dy}px;
-            --rotate-start: ${rotStart}deg;
-            --rotate-end: ${rotEnd}deg;
-            --duration: ${duration}s;
-          `;
-
-          if (!fromLeft) {
-            el.classList.add('from-right');
-          }
-
-          el.innerHTML = `
-            <div class="invoice-card">
-              <div class="inv-header">
-                <div style="display:flex;align-items:center;gap:6px;">
-                  <div style="width:20px;height:20px;border-radius:50%;background:${c.color};display:flex;align-items:center;justify-content:center;">
-                    <span style="font-size:7px;font-weight:700;color:#fff;">${c.initials}</span>
-                  </div>
-                  <span class="inv-title">${c.name}</span>
-                </div>
-                <span class="inv-badge ${isPaid ? 'paid' : 'sent'}">${isPaid ? 'Betalt' : 'Sendt'}</span>
-              </div>
-              <div class="inv-row">
-                <span>${type} · 60 min</span>
-                <span class="inv-amount">${amount} kr</span>
-              </div>
-              <div class="inv-detail">Faktura #${1000 + Math.floor(Math.random() * 900)}</div>
-            </div>
-          `;
-
-          container.appendChild(el);
-          setTimeout(() => el.remove(), duration * 1000 + 100);
+        function getStoredTheme() {
+          return localStorage.getItem('theme');
         }
 
-        // Stagger initial invoices
-        setTimeout(() => createInvoice(), 2000);
-        setTimeout(() => createInvoice(), 4500);
+        function getSystemTheme() {
+          return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
 
-        // Then spawn periodically
-        setInterval(() => {
-          createInvoice();
-        }, 3500 + Math.random() * 2000);
+        function applyTheme(theme) {
+          if (theme === 'light') {
+            html.classList.add('light');
+          } else {
+            html.classList.remove('light');
+          }
+        }
+
+        // Initialize theme
+        const stored = getStoredTheme();
+        if (stored) {
+          applyTheme(stored);
+        } else {
+          applyTheme(getSystemTheme());
+        }
+
+        function toggleTheme() {
+          const isLight = html.classList.contains('light');
+          const newTheme = isLight ? 'dark' : 'light';
+          applyTheme(newTheme);
+          localStorage.setItem('theme', newTheme);
+        }
+
+        if (toggleDesktop) toggleDesktop.addEventListener('click', toggleTheme);
+        if (toggleMobile) toggleMobile.addEventListener('click', toggleTheme);
+
+        // Listen for system theme changes (only if no stored preference)
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+          if (!getStoredTheme()) {
+            applyTheme(e.matches ? 'light' : 'dark');
+          }
+        });
       })();
 
       // Smooth scroll for anchor links
