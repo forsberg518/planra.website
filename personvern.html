@@ -114,7 +114,7 @@
         <h1 class="text-4xl sm:text-5xl font-black mb-4">
           <span class="gradient-text">Personvern</span>erklæring
         </h1>
-        <p class="text-slate-400 text-lg">Sist oppdatert: 27. februar 2026</p>
+        <p class="text-slate-400 text-lg">Sist oppdatert: 9. april 2026</p>
       </div>
     </section>
 
@@ -161,9 +161,20 @@
 
         <h3>2.4 Tekniske opplysninger</h3>
         <ul>
-          <li>Enhets-token for push-varsler (Expo Notifications)</li>
+          <li>Enhets-token for push-varsler (Apple Push Notification Service / APNs)</li>
           <li>Innloggingsinformasjon og sesjonshåndtering</li>
           <li>Grunnleggende feillogging ved tekniske problemer</li>
+          <li>Fiken OAuth-tokens (lagres kryptert i Keychain på enheten)</li>
+        </ul>
+
+        <h3>2.5 Kalenderdata</h3>
+        <ul>
+          <li>Synkroniserte hendelser i Apple Kalender (via EventKit) og/eller Google Kalender (via Google Calendar API)</li>
+        </ul>
+
+        <h3>2.6 Fakturahistorikk</h3>
+        <ul>
+          <li>Opprettede fakturaer via Fiken-integrasjonen (beløp, mottaker, status)</li>
         </ul>
 
         <h2>3. Formål og rettslig grunnlag</h2>
@@ -176,13 +187,25 @@
 
         <h2>4. Lagring og databehandlere</h2>
         <p>
-          Planra bruker <strong class="text-slate-300">Convex</strong> (Convex, Inc., USA) som backend-plattform for
-          lagring og sanntidssynkronisering av data. Convex er underlagt standard kontraktsklausuler (SCCs)
-          i henhold til GDPR art. 46, og dataene er kryptert i overføring og i ro.
+          Planra bruker <strong class="text-slate-300">Supabase</strong> (Supabase, Inc.) som backend-plattform for
+          lagring og sanntidssynkronisering av data. Data lagres i EU (AWS eu-west-1). Supabase er
+          GDPR-kompatibel, og dataene er kryptert i overføring og i ro.
         </p>
         <p>
-          Push-varsler sendes via <strong class="text-slate-300">Expo Notifications</strong> (Expo, Inc., USA),
-          som videreformidler til Apples APNs og Googles FCM.
+          Push-varsler sendes direkte via <strong class="text-slate-300">Apple Push Notification Service (APNs)</strong>.
+        </p>
+        <p>
+          <strong class="text-slate-300">Fiken</strong> (Fiken AS, Norge) brukes for fakturering.
+          Kundedata (navn og e-postadresse) sendes til Fiken når treneren oppretter en faktura via
+          faktura-funksjonen i appen.
+        </p>
+        <p>
+          <strong class="text-slate-300">Google Calendar API</strong> — kalenderdata synkroniseres med
+          Google Kalender dersom brukeren aktiverer Google-kalendersynk i appen.
+        </p>
+        <p>
+          <strong class="text-slate-300">Apple EventKit</strong> — treningsøkter kan synkroniseres til
+          Apple Kalender lokalt på brukerens enhet.
         </p>
         <p>
           Vi selger ikke personopplysninger til tredjeparter, og deler ikke data utover det som er
@@ -193,7 +216,7 @@
         <ul>
           <li>Kontoopplysninger lagres så lenge kontoen er aktiv</li>
           <li>Treningsdata og chatmeldinger lagres aktivt i app-perioden</li>
-          <li>Ved sletting av konto slettes alle personopplysninger innen 30 dager</li>
+          <li>Ved sletting av konto slettes alle personopplysninger umiddelbart</li>
           <li>Anonymiserte aggregerte statistikker kan beholdes uten tidsbegrensning</li>
         </ul>
 
