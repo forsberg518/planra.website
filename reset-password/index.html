@@ -369,15 +369,14 @@
       const hash  = parseHash();
       const query = parseQuery();
 
-      // Supabase PKCE flow sends a `code` query param
-      if (query.code && query.type === 'recovery') {
-        // Exchange the code for a session
-        const { error } = await sb.auth.exchangeCodeForSession(query.code);
+      // PKCE flow: Supabase sends ?code=xxx (type param may or may not be present)
+      if (query.code) {
+        const { error } = await sb.auth.exchangeCodeForSession(window.location.href);
         if (!error) { renderForm(); return; }
       }
 
-      // Implicit flow sends tokens in the hash
-      if (hash.access_token && hash.type === 'recovery') {
+      // Implicit flow: tokens in hash fragment
+      if (hash.access_token) {
         const { error } = await sb.auth.setSession({
           access_token:  hash.access_token,
           refresh_token: hash.refresh_token,
@@ -385,9 +384,24 @@
         if (!error) { renderForm(); return; }
       }
 
-      // Check if we already have an active recovery session
+      // Listen for PASSWORD_RECOVERY event (some Supabase configurations)
+      const authPromise = new Promise((resolve) => {
+        const { data: { subscription } } = sb.auth.onAuthStateChange((event, session) => {
+          if (event === 'PASSWORD_RECOVERY' || (event === 'SIGNED_IN' && session)) {
+            subscription.unsubscribe();
+            resolve(true);
+          }
+        });
+        // Timeout after 3s to avoid hanging
+        setTimeout(() => resolve(false), 3000);
+      });
+
+      // Also check for existing session
       const { data: { session } } = await sb.auth.getSession();
       if (session) { renderForm(); return; }
+
+      const recovered = await authPromise;
+      if (recovered) { renderForm(); return; }
 
       // No valid token found
       renderMissingToken();
