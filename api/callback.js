@@ -70,13 +70,20 @@ module.exports = async function handler(req, res) {
   (function() {
     var token = ${JSON.stringify(data.access_token)};
     var message = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
-    if (window.opener) {
-      window.opener.postMessage(message, '*');
-      document.getElementById('msg').textContent = 'Innlogging vellykket!';
-      setTimeout(function() { window.close(); }, 500);
-    } else {
-      document.getElementById('msg').textContent = 'Feil: window.opener er null. Lukk dette vinduet og prøv igjen.';
+    var sent = false;
+    function trySend() {
+      if (window.opener && !sent) {
+        sent = true;
+        window.opener.postMessage(message, '*');
+        document.getElementById('msg').textContent = 'Innlogging vellykket!';
+        setTimeout(function() { window.close(); }, 2000);
+      } else if (!window.opener) {
+        document.getElementById('msg').textContent = 'Feil: window.opener er null. Lukk dette vinduet og prøv igjen.';
+      }
     }
+    // Try immediately, then retry once after a short delay
+    trySend();
+    setTimeout(trySend, 200);
   })();
 </script>
 </body>
