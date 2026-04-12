@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/admin",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
