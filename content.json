@@ -1,0 +1,79 @@
+{
+  "hero_badge": "Nå tilgjengelig på App Store",
+  "hero_tittel_1": "Din komplette",
+  "hero_tittel_highlight": "PT-app",
+  "hero_tittel_3": "for trenere og kunder",
+  "hero_tekst": "Planra samler timeplan, kunder, fakturering og chat i én enkel app. Perfekt for norske personlige trenere som vil drive virksomheten sin smartere.",
+
+  "trener_overskrift": "Alt du trenger for å drive",
+  "trener_overskrift_highlight": "en suksessfull PT-virksomhet",
+  "trener_tekst": "Planra gir deg full oversikt over alle kunder, timer og inntekter. Bruk mer tid på det du er god på – å trene folk.",
+  "trener_bilde": "/section-hjem-trener.png",
+  "trener_funksjoner": [
+    { "tittel": "Smart kalender", "beskrivelse": "Uke- og månedsoversikt med alle timene dine. Se raskt hvem som skal trene og når." },
+    { "tittel": "Kundeadministrasjon", "beskrivelse": "Hold oversikt over alle kunder, timhistorikk, mål og fremgang – alt samlet ett sted." },
+    { "tittel": "Fakturering og betaling", "beskrivelse": "Spor inntekter, marker timer som fakturert eller betalt. Enkel oversikt over hva du tjener." },
+    { "tittel": "Push-varsler", "beskrivelse": "Automatiske påminnelser til kunder 1 time før økt, og varsler om nye meldinger." }
+  ],
+
+  "kunde_overskrift": "Hold deg motivert",
+  "kunde_overskrift_highlight": "og nå målene dine",
+  "kunde_tekst": "Som kunde har du alltid full oversikt over neste økt, fremgang mot mål og direkte kontakt med treneren din.",
+  "kunde_bilde": "/section-hjem-kunde.png",
+  "kunde_funksjoner": [
+    { "tittel": "Be om time", "beskrivelse": "Send timerequest til treneren din med ønsket treningstype og notater. Enkelt og raskt." },
+    { "tittel": "Følg fremgang", "beskrivelse": "Se visualisert fremgang mot alle målene dine. Logg egne treninger og se statistikk." },
+    { "tittel": "Chat med treneren", "beskrivelse": "Hold kontakten mellom øktene. Still spørsmål, del oppdateringer og få motivasjon." },
+    { "tittel": "Nedtelling til neste økt", "beskrivelse": "Alltid en visuell nedtelling til neste time, så du aldri mister motivasjonen." }
+  ],
+
+  "chat_overskrift": "Hold kontakten mellom",
+  "chat_overskrift_highlight": "øktene",
+  "chat_tekst": "Med sanntids chat i Planra trenger du ikke WhatsApp, SMS eller e-post for å kommunisere med kundene dine. Alt skjer direkte i appen – alltid organisert og oversiktlig.",
+  "chat_bilde": "/section-chat.png",
+
+  "pris_trener_kr": "249",
+  "pris_proveperiode": "30 dager gratis prøveperiode",
+  "pris_trener_punkter": [
+    "Ubegrenset antall kunder",
+    "Timeplan og booking",
+    "Fakturering og betaling",
+    "Sanntids chat",
+    "Integrasjoner (Fiken, Google Kalender)"
+  ],
+  "pris_kunde_punkter": [
+    "Book timer med din PT",
+    "Chat direkte med treneren din",
+    "Se din treningsplan og fremgang",
+    "Betaling til treneren din",
+    "Push-varsler og påminnelser"
+  ],
+
+  "cta_overskrift_1": "Klar til å ta",
+  "cta_overskrift_highlight": "PT-hverdagen din",
+  "cta_overskrift_3": "til neste nivå?",
+  "cta_tekst": "Start din 30 dager gratis prøveperiode og opplev den enkleste måten å administrere PT-virksomheten din på.",
+
+  "faq": [
+    {
+      "sporsmal": "Koster Planra noe?",
+      "svar": "Planra koster 249 kr/mnd for trenere, med 30 dagers gratis prøveperiode – ingen kredittkort kreves for å starte. For kunder av personlige trenere er Planra alltid helt gratis."
+    },
+    {
+      "sporsmal": "Hvordan inviterer jeg kundene mine som trener?",
+      "svar": "Gå til «Kunder»-fanen og trykk inviter. Du får en lenke du kan sende via SMS, e-post eller annen kanal. Kunden laster ned appen, klikker lenken og er koblet til deg på sekunder."
+    },
+    {
+      "sporsmal": "Hvilke plattformer støtter Planra?",
+      "svar": "Planra er nå tilgjengelig på iOS (iPhone og iPad) via App Store. Android-versjon via Google Play er under utvikling og kommer snart."
+    },
+    {
+      "sporsmal": "Er dataene mine trygge?",
+      "svar": "Ja. All data krypteres i overføring og i ro. Vi følger GDPR og selger aldri data til tredjeparter. Les mer i vår personvernerklæring."
+    },
+    {
+      "sporsmal": "Fungerer Planra uten internett?",
+      "svar": "Appen krever internett for å synkronisere og sende meldinger. Allerede innlastet informasjon vises midlertidig uten nett, men endringer lagres ikke uten tilkobling."
+    }
+  ]
+}
