@@ -1,11 +1,36 @@
+const https = require('https');
+
+function postJSON(url, body) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify(body);
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(data),
+        Accept: 'application/json',
+      },
+    };
+    const req = https.request(url, options, (res) => {
+      let raw = '';
+      res.on('data', (chunk) => { raw += chunk; });
+      res.on('end', () => {
+        try { resolve(JSON.parse(raw)); }
+        catch (e) { reject(new Error('Invalid JSON: ' + raw)); }
+      });
+    });
+    req.on('error', reject);
+    req.write(data);
+    req.end();
+  });
+}
+
 module.exports = async function handler(req, res) {
   const { code, error } = req.query;
 
   if (error) {
     res.setHeader('Content-Type', 'text/html');
-    res.send(`<!DOCTYPE html><html><body>
-      <p>Authorization denied: ${error}</p>
-    </body></html>`);
+    res.send(`<!DOCTYPE html><html><body><p>Authorization denied: ${error}</p></body></html>`);
     return;
   }
 
@@ -14,25 +39,22 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({
+  let data;
+  try {
+    data = await postJSON('https://github.com/login/oauth/access_token', {
       client_id: process.env.OAUTH_CLIENT_ID,
       client_secret: process.env.OAUTH_CLIENT_SECRET,
       code,
-    }),
-  });
-
-  const data = await tokenRes.json();
+    });
+  } catch (err) {
+    res.status(500).send('Token exchange failed: ' + err.message);
+    return;
+  }
 
   if (data.error || !data.access_token) {
     res.setHeader('Content-Type', 'text/html');
     res.send(`<!DOCTYPE html><html><body>
-      <p>OAuth failed: ${data.error || 'no token received'}</p>
+      <p>OAuth feilet: ${data.error || 'ingen token mottatt'}</p>
       <pre>${JSON.stringify(data)}</pre>
     </body></html>`);
     return;
@@ -48,18 +70,13 @@ module.exports = async function handler(req, res) {
   (function() {
     var token = ${JSON.stringify(data.access_token)};
     var message = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
-
-    function sendMessage() {
-      if (window.opener) {
-        window.opener.postMessage(message, '*');
-        document.getElementById('msg').textContent = 'Innlogging vellykket! Dette vinduet lukkes...';
-        setTimeout(function() { window.close(); }, 500);
-      } else {
-        document.getElementById('msg').textContent = 'Feil: window.opener er null. Lukk dette vinduet og prøv igjen.';
-      }
+    if (window.opener) {
+      window.opener.postMessage(message, '*');
+      document.getElementById('msg').textContent = 'Innlogging vellykket!';
+      setTimeout(function() { window.close(); }, 500);
+    } else {
+      document.getElementById('msg').textContent = 'Feil: window.opener er null. Lukk dette vinduet og prøv igjen.';
     }
-
-    sendMessage();
   })();
 </script>
 </body>
