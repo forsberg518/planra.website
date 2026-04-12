@@ -1,5 +1,13 @@
 module.exports = async function handler(req, res) {
-  const { code } = req.query;
+  const { code, error } = req.query;
+
+  if (error) {
+    res.setHeader('Content-Type', 'text/html');
+    res.send(`<!DOCTYPE html><html><body>
+      <p>Authorization denied: ${error}</p>
+    </body></html>`);
+    return;
+  }
 
   if (!code) {
     res.status(400).send('Missing code');
@@ -22,7 +30,11 @@ module.exports = async function handler(req, res) {
   const data = await tokenRes.json();
 
   if (data.error || !data.access_token) {
-    res.status(401).send('OAuth failed: ' + (data.error || 'no token'));
+    res.setHeader('Content-Type', 'text/html');
+    res.send(`<!DOCTYPE html><html><body>
+      <p>OAuth failed: ${data.error || 'no token received'}</p>
+      <pre>${JSON.stringify(data)}</pre>
+    </body></html>`);
     return;
   }
 
@@ -31,14 +43,23 @@ module.exports = async function handler(req, res) {
 <html>
 <head><title>Authorized</title></head>
 <body>
+<p id="msg">Fullfører innlogging...</p>
 <script>
   (function() {
     var token = ${JSON.stringify(data.access_token)};
-    var msg = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
-    if (window.opener) {
-      window.opener.postMessage(msg, '*');
+    var message = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
+
+    function sendMessage() {
+      if (window.opener) {
+        window.opener.postMessage(message, '*');
+        document.getElementById('msg').textContent = 'Innlogging vellykket! Dette vinduet lukkes...';
+        setTimeout(function() { window.close(); }, 500);
+      } else {
+        document.getElementById('msg').textContent = 'Feil: window.opener er null. Lukk dette vinduet og prøv igjen.';
+      }
     }
-    window.close();
+
+    sendMessage();
   })();
 </script>
 </body>
