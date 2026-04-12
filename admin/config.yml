@@ -2,7 +2,7 @@ backend:
   name: github
   repo: forsberg418/planra.website
   branch: main
-  base_url: https://planra.no
+  base_url: https://www.planra.no
   auth_endpoint: /api/auth
 
 media_folder: uploads
