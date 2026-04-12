@@ -8,6 +8,11 @@
     <base href="/admin/">
   </head>
   <body>
+    <script>
+      window.addEventListener('message', function(e) {
+        console.log('[CMS DEBUG] message from:', e.origin, 'data:', e.data);
+      });
+    </script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
