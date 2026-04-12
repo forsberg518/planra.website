@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: forsberg418/planra.website
+  repo: forsberg518/planra.website
   branch: main
   base_url: https://www.planra.no
   auth_endpoint: /api/auth
