@@ -19,22 +19,28 @@ module.exports = async function handler(req, res) {
     }),
   });
 
-  const { access_token, error } = await tokenRes.json();
+  const data = await tokenRes.json();
 
-  if (error || !access_token) {
-    res.status(401).send('OAuth failed: ' + (error || 'no token'));
+  if (data.error || !data.access_token) {
+    res.status(401).send('OAuth failed: ' + (data.error || 'no token'));
     return;
   }
 
-  const content = JSON.stringify({ token: access_token, provider: 'github' });
-
-  res.send(`<!DOCTYPE html><html><body><script>
-    (function() {
-      window.opener.postMessage(
-        'authorization:github:success:' + ${JSON.stringify(content)},
-        '*'
-      );
-      window.close();
-    })();
-  <\/script></body></html>`);
-}
+  res.setHeader('Content-Type', 'text/html');
+  res.send(`<!DOCTYPE html>
+<html>
+<head><title>Authorized</title></head>
+<body>
+<script>
+  (function() {
+    var token = ${JSON.stringify(data.access_token)};
+    var msg = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
+    if (window.opener) {
+      window.opener.postMessage(msg, '*');
+    }
+    window.close();
+  })();
+</script>
+</body>
+</html>`);
+};
