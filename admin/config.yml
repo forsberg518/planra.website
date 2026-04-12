@@ -1,0 +1,148 @@
+backend:
+  name: github
+  repo: forsberg418/planra.website
+  branch: main
+  base_url: https://planra.no
+  auth_endpoint: /api/auth
+
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: innhold
+    label: Nettside-innhold
+    files:
+      - name: settings
+        label: Innhold
+        file: content.json
+        fields:
+
+          # ── HERO ──────────────────────────────────────────────
+          - label: "Badge-tekst (øverst i hero)"
+            name: hero_badge
+            widget: string
+
+          - label: "Hero tittel – linje 1"
+            name: hero_tittel_1
+            widget: string
+
+          - label: "Hero tittel – uthevet ord"
+            name: hero_tittel_highlight
+            widget: string
+
+          - label: "Hero tittel – linje 3"
+            name: hero_tittel_3
+            widget: string
+
+          - label: "Hero undertekst"
+            name: hero_tekst
+            widget: text
+
+          # ── FOR TRENERE ───────────────────────────────────────
+          - label: "Trener – overskrift"
+            name: trener_overskrift
+            widget: string
+
+          - label: "Trener – uthevet del av overskrift"
+            name: trener_overskrift_highlight
+            widget: string
+
+          - label: "Trener – brødtekst"
+            name: trener_tekst
+            widget: text
+
+          - label: "Trener – app-bilde"
+            name: trener_bilde
+            widget: image
+
+          - label: "Trener – funksjoner"
+            name: trener_funksjoner
+            widget: list
+            fields:
+              - { label: Tittel, name: tittel, widget: string }
+              - { label: Beskrivelse, name: beskrivelse, widget: text }
+
+          # ── FOR KUNDER ────────────────────────────────────────
+          - label: "Kunde – overskrift"
+            name: kunde_overskrift
+            widget: string
+
+          - label: "Kunde – uthevet del av overskrift"
+            name: kunde_overskrift_highlight
+            widget: string
+
+          - label: "Kunde – brødtekst"
+            name: kunde_tekst
+            widget: text
+
+          - label: "Kunde – app-bilde"
+            name: kunde_bilde
+            widget: image
+
+          - label: "Kunde – funksjoner"
+            name: kunde_funksjoner
+            widget: list
+            fields:
+              - { label: Tittel, name: tittel, widget: string }
+              - { label: Beskrivelse, name: beskrivelse, widget: text }
+
+          # ── INNEBYGD CHAT ─────────────────────────────────────
+          - label: "Chat – overskrift"
+            name: chat_overskrift
+            widget: string
+
+          - label: "Chat – uthevet ord"
+            name: chat_overskrift_highlight
+            widget: string
+
+          - label: "Chat – brødtekst"
+            name: chat_tekst
+            widget: text
+
+          - label: "Chat – app-bilde"
+            name: chat_bilde
+            widget: image
+
+          # ── PRIS ──────────────────────────────────────────────
+          - label: "Trener-pris (kr/mnd)"
+            name: pris_trener_kr
+            widget: string
+
+          - label: "Prøveperiode-tekst"
+            name: pris_proveperiode
+            widget: string
+
+          - label: "Trener-plan funksjoner (5 stk)"
+            name: pris_trener_punkter
+            widget: list
+            field: { label: Punkt, name: item, widget: string }
+
+          - label: "Kunde-plan funksjoner (5 stk)"
+            name: pris_kunde_punkter
+            widget: list
+            field: { label: Punkt, name: item, widget: string }
+
+          # ── CTA ───────────────────────────────────────────────
+          - label: "CTA overskrift – linje 1"
+            name: cta_overskrift_1
+            widget: string
+
+          - label: "CTA overskrift – uthevet ord"
+            name: cta_overskrift_highlight
+            widget: string
+
+          - label: "CTA overskrift – linje 3"
+            name: cta_overskrift_3
+            widget: string
+
+          - label: "CTA undertekst"
+            name: cta_tekst
+            widget: text
+
+          # ── FAQ ───────────────────────────────────────────────
+          - label: "FAQ (spørsmål og svar)"
+            name: faq
+            widget: list
+            fields:
+              - { label: Spørsmål, name: sporsmal, widget: string }
+              - { label: Svar, name: svar, widget: text }
