@@ -129,6 +129,37 @@
           #0f172a;
       }
 
+      .premium-hero {
+        min-height: min(860px, 92svh);
+      }
+
+      .hero-title {
+        max-width: 100%;
+        overflow-wrap: normal;
+      }
+
+      .hero-copy {
+        max-width: min(100%, 28rem);
+      }
+
+      @media (max-width: 1023px) {
+        .premium-hero {
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 639px) {
+        .hero-title {
+          max-width: 12ch;
+          font-size: 2.35rem;
+          overflow-wrap: break-word;
+        }
+
+        .hero-copy {
+          max-width: 32ch;
+        }
+      }
+
       .glass {
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(24px) saturate(1.2);
@@ -209,7 +240,7 @@
       }
       @media (min-width: 768px) {
         .sticky-steps-wrap {
-          min-height: 200vh;
+          min-height: 118vh;
         }
         .sticky-steps-inner {
           position: sticky;
@@ -422,7 +453,7 @@
         animation: loader-fade-out 0.4s ease-out forwards;
       }
       .loader-logo {
-        width: 160px;
+        width: 132px;
         opacity: 0;
         animation: loader-fade-in 0.6s ease-out 0.1s forwards;
       }
@@ -742,7 +773,7 @@
 
     <!-- ===== LOADER ===== -->
     <div id="loader" aria-hidden="true">
-      <img src="planra-logo-mono.png" alt="Planra" class="loader-logo" />
+      <img src="planra-logo-mono.svg" alt="Planra" class="loader-logo" />
     </div>
 
     <!-- ===== NAVIGATION ===== -->
@@ -760,7 +791,7 @@
             <svg class="icon-sun w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
             <svg class="icon-moon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
           </button>
-          <a href="#last-ned" class="text-sm bg-white text-slate-900 hover:bg-slate-100 px-5 py-2 rounded-full font-semibold transition-all duration-200">Last ned</a>
+          <a href="#last-ned" class="text-sm bg-white text-slate-900 hover:bg-slate-100 px-5 py-2 rounded-full font-semibold transition-all duration-200">Start gratis</a>
         </div>
         <!-- Mobile menu button -->
         <div class="flex items-center gap-2 md:hidden">
@@ -784,12 +815,12 @@
         <a href="#kunder" class="text-sm text-slate-300 hover:text-white transition-colors py-1">For kunder</a>
         <a href="#integrasjoner" class="text-sm text-slate-300 hover:text-white transition-colors py-1">Integrasjoner</a>
         <a href="#pris" class="text-sm text-slate-300 hover:text-white transition-colors py-1">Pris</a>
-        <a href="#last-ned" class="text-sm bg-white text-slate-900 hover:bg-slate-100 px-4 py-3 rounded-xl font-semibold transition-all duration-200 text-center">Last ned</a>
+        <a href="#last-ned" class="text-sm bg-white text-slate-900 hover:bg-slate-100 px-4 py-3 rounded-xl font-semibold transition-all duration-200 text-center">Start gratis</a>
       </div>
     </nav>
 
     <!-- ===== HERO ===== -->
-    <section class="hero-bg min-h-screen pt-16 relative overflow-hidden" id="hero-section">
+    <section class="hero-bg premium-hero pt-16 relative overflow-hidden" id="hero-section">
       <!-- Background grid -->
       <div
         class="absolute inset-0 opacity-[0.03]"
@@ -803,7 +834,7 @@
         "
       ></div>
 
-      <div class="max-w-7xl mx-auto px-6 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <div class="max-w-7xl mx-auto px-6 pt-12 pb-16 lg:pt-16 lg:pb-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
         <!-- Left: Content -->
         <div class="flex-1 max-w-xl w-full">
           <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-6 text-xs font-medium text-slate-400 tracking-wide">
@@ -811,22 +842,21 @@
             <span data-cms="hero_badge">Nå tilgjengelig på App Store</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-[-0.02em] mb-6">
-            <span data-cms="hero_tittel_1">Din komplette</span>
+          <h1 class="hero-title text-[2.7rem] sm:text-5xl lg:text-6xl font-black leading-[1.04] tracking-[-0.02em] mb-6">
+            <span data-cms="hero_tittel_1">Driv PT-bedriften</span>
             <br />
-            <span class="gradient-text" data-cms="hero_tittel_highlight">PT-app</span>
+            <span class="gradient-text" data-cms="hero_tittel_highlight">fra én kalender</span>
             <br />
-            <span data-cms="hero_tittel_3">for trenere og kunder</span>
+            <span data-cms="hero_tittel_3">uten mer administrasjon</span>
           </h1>
 
-          <p class="text-lg text-slate-400 leading-relaxed mb-8 max-w-md" data-cms="hero_tekst">
-            Planra samler timeplan, kunder, fakturering og chat i én enkel app.
-            Perfekt for norske personlige trenere som vil drive virksomheten sin
-            smartere.
+          <p class="hero-copy text-base sm:text-lg text-slate-400 leading-relaxed mb-7" data-cms="hero_tekst">
+            Planra samler booking, kunder, fakturering og chat i én ryddig app
+            for norske personlige trenere.
           </p>
 
           <!-- Store buttons -->
-          <div class="flex flex-wrap gap-3 mb-10">
+          <div class="flex flex-wrap gap-3 mb-8">
             <!-- App Store -->
             <a
               href="https://apps.apple.com/us/app/planra/id6760238818"
@@ -839,14 +869,14 @@
                 />
               </svg>
               <div>
-                <div class="text-xs text-slate-600">Last ned på</div>
+                <div class="text-xs text-slate-600">Start gratis på</div>
                 <div class="text-sm font-bold">App Store</div>
               </div>
             </a>
 
             <!-- Google Play -->
             <a
-              href="#last-ned"
+              href="#faq"
               class="flex items-center gap-3 glass-light border border-white/10 text-white px-5 py-3 rounded-xl hover:border-white/20 transition-all duration-200"
             >
               <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
@@ -855,48 +885,29 @@
                 />
               </svg>
               <div>
-                <div class="text-xs text-slate-400">Kommer snart på</div>
+                <div class="text-xs text-slate-400">Status for</div>
                 <div class="text-sm font-bold">Google Play</div>
               </div>
             </a>
           </div>
 
           <!-- Feature pills -->
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium"
-              >📅 Kalender</span
-            >
-            <span
-              class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium"
-              >💬 Chat</span
-            >
-            <span
-              class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium"
-              >🎯 Mål</span
-            >
-            <span
-              class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium"
-              >💳 Fakturering</span
-            >
-            <span
-              class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium"
-              >🔔 Varsler</span
-            >
+          <div class="flex flex-wrap gap-2 mb-6 lg:mb-0">
+            <span class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium">Kalender</span>
+            <span class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium">Chat</span>
+            <span class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium">Mål</span>
+            <span class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium">Fakturering</span>
+            <span class="text-[11px] px-3 py-1 rounded-full glass border border-white/8 text-slate-500 font-medium">Varsler</span>
           </div>
         </div>
 
         <!-- Right: Phone mockups -->
         <div class="flex-1 flex items-center justify-center relative w-full">
-          <!-- Glow orbs -->
-          <div class="absolute w-64 h-64 rounded-full opacity-20 blur-3xl pointer-events-none" style="background: radial-gradient(circle, #3b82f6, transparent); top: 10%; left: 20%;"></div>
-          <div class="absolute w-48 h-48 rounded-full opacity-15 blur-3xl pointer-events-none" style="background: radial-gradient(circle, #8b5cf6, transparent); bottom: 10%; right: 20%;"></div>
-
           <div class="phone-enter-right phone-shadow-img" style="--rotate: 0deg;">
             <img
               src="hero-phones.png"
               alt="Planra app – Hjem og Kalender"
-              class="w-[650px] max-w-full"
+              class="w-[680px] max-w-[118%] sm:max-w-full"
               style="height: auto;"
             />
           </div>
@@ -1328,7 +1339,7 @@
               </li>
             </ul>
             <a href="#last-ned" class="inline-flex items-center justify-center gap-2 bg-[#5239BA]/20 hover:bg-[#5239BA]/30 border border-[#5239BA]/30 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-colors">
-              Koble til Fiken
+              Start med Fiken
             </a>
           </div>
 
@@ -1361,7 +1372,7 @@
               </li>
             </ul>
             <a href="#last-ned" class="inline-flex items-center justify-center gap-2 bg-[#4285F4]/20 hover:bg-[#4285F4]/30 border border-[#4285F4]/30 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-colors">
-              Koble til Google Kalender
+              Synk med Google Kalender
             </a>
           </div>
 
@@ -1394,7 +1405,7 @@
               </li>
             </ul>
             <a href="#last-ned" class="inline-flex items-center justify-center gap-2 bg-[#FF3B30]/10 hover:bg-[#FF3B30]/20 border border-[#FF3B30]/25 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-colors">
-              Koble til Apple Kalender
+              Synk med Apple Kalender
             </a>
           </div>
 
@@ -1507,7 +1518,7 @@
 
     <!-- ===== FAQ ===== -->
     <div class="section-divider"></div>
-    <section class="py-28 px-6 bg-[#0c1524]">
+    <section id="faq" class="py-28 px-6 bg-[#0c1524]">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-12 reveal">
           <div class="inline-flex items-center gap-2 text-blue-400/80 text-xs font-semibold uppercase tracking-widest mb-4">
@@ -1601,12 +1612,12 @@
         </div>
 
         <h2 class="text-3xl sm:text-5xl font-black tracking-[-0.02em] mb-4">
-          <span data-cms="cta_overskrift_1">Klar til å ta</span><br />
-          <span class="gradient-text" data-cms="cta_overskrift_highlight">PT-hverdagen din</span><br />
-          <span data-cms="cta_overskrift_3">til neste nivå?</span>
+          <span data-cms="cta_overskrift_1">Start med</span><br />
+          <span class="gradient-text" data-cms="cta_overskrift_highlight">en ryddigere PT-hverdag</span><br />
+          <span data-cms="cta_overskrift_3">i dag</span>
         </h2>
         <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto" data-cms="cta_tekst">
-          Start din 30 dager gratis prøveperiode og opplev den enkleste måten å administrere PT-virksomheten din på.
+          Prøv Planra gratis i 30 dager og få booking, kunder, chat og fakturering samlet fra første økt.
         </p>
 
         <!-- Store buttons (large) -->
@@ -1626,14 +1637,14 @@
           </a>
 
           <a
-            href="#"
+            href="#faq"
             class="flex items-center justify-center gap-4 glass border border-white/10 text-white px-8 py-4 rounded-xl hover:border-white/20 transition-all duration-300 hover:scale-[1.02]"
           >
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="currentColor">
               <path d="M3.18 23.76c.31.17.68.19 1.02.05L13.64 12 4.2.19C3.86.05 3.49.07 3.18.24 2.55.6 2.17 1.29 2.17 2.05v19.9c0 .76.38 1.45 1.01 1.81zM16.15 15l2.8 2.8-9.47 5.32 6.67-8.12zm2.8-8.8L16.15 9l-6.67-8.12 9.47 5.32zm1.5.84l2.72 1.53c.74.42 1.18 1.12 1.18 1.83 0 .71-.44 1.41-1.17 1.83l-2.73 1.53-3.05-3.06 3.05-3.06z"/>
             </svg>
             <div class="text-left">
-              <div class="text-xs text-slate-400">Kommer snart</div>
+              <div class="text-xs text-slate-400">Status for</div>
               <div class="text-lg font-bold">Google Play</div>
             </div>
           </a>
@@ -1682,7 +1693,7 @@
               <div class="font-semibold text-white mb-3">Last ned</div>
               <ul class="space-y-2 text-slate-400">
                 <li><a href="https://apps.apple.com/us/app/planra/id6760238818" target="_blank" rel="noopener" class="hover:text-white transition-colors">App Store</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Google Play</a></li>
+                <li><a href="#faq" class="hover:text-white transition-colors">Google Play</a></li>
               </ul>
             </div>
             <div>
@@ -1703,7 +1714,7 @@
         </div>
         <div class="border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <div>© 2025–2026 Planra. Alle rettigheter forbeholdt.</div>
-          <div>Laget med ❤️ i Norge</div>
+          <div>Utviklet i Norge</div>
         </div>
       </div>
     </footer>
@@ -1711,7 +1722,7 @@
     <script>
       // Loader exit
       const loader = document.getElementById('loader');
-      const minDuration = 800; // ms minimum display time
+      const minDuration = 200; // ms minimum display time
       const startTime = Date.now();
 
       function dismissLoader() {

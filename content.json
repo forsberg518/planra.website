@@ -1,9 +1,9 @@
 {
   "hero_badge": "Nå tilgjengelig på App Store",
-  "hero_tittel_1": "Din komplette",
-  "hero_tittel_highlight": "PT-app",
-  "hero_tittel_3": "for trenere og kunder",
-  "hero_tekst": "Planra samler timeplan, kunder, fakturering og chat i én enkel app. Perfekt for norske personlige trenere som vil drive virksomheten sin smartere.",
+  "hero_tittel_1": "Driv PT-bedriften",
+  "hero_tittel_highlight": "fra én kalender",
+  "hero_tittel_3": "uten mer administrasjon",
+  "hero_tekst": "Planra samler booking, kunder, fakturering og chat i én ryddig app for norske personlige trenere.",
 
   "trener_overskrift": "Alt du trenger for å drive",
   "trener_overskrift_highlight": "en suksessfull PT-virksomhet",
@@ -49,10 +49,10 @@
     "Push-varsler og påminnelser"
   ],
 
-  "cta_overskrift_1": "Klar til å ta",
-  "cta_overskrift_highlight": "PT-hverdagen din",
-  "cta_overskrift_3": "til neste nivå?",
-  "cta_tekst": "Start din 30 dager gratis prøveperiode og opplev den enkleste måten å administrere PT-virksomheten din på.",
+  "cta_overskrift_1": "Start med",
+  "cta_overskrift_highlight": "en ryddigere PT-hverdag",
+  "cta_overskrift_3": "i dag",
+  "cta_tekst": "Prøv Planra gratis i 30 dager og få booking, kunder, chat og fakturering samlet fra første økt.",
 
   "faq": [
     {
